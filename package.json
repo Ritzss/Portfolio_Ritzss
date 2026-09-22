@@ -1,0 +1,28 @@
+{
+  "name": "portfolio_ritzss",
+  "version": "1.0.0",
+  "private": true,
+  "description": "My personal developer portfolio, built for both web and mobile using Next.js, React Native, Expo, and a shared TypeScript monorepo.",
+  "scripts": {
+    "dev": "turbo dev",
+    "web": "pnpm --filter web dev",
+    "mobile": "pnpm --filter mobile start",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck"
+  },
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "react",
+    "react-native",
+    "expo",
+    "typescript"
+  ],
+  "author": "Ritanshu Babuta",
+  "license": "MIT",
+  "packageManager": "pnpm@12.5.1",
+  "devDependencies": {
+    "turbo": "^2.11.2"
+  }
+}
