@@ -82,7 +82,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-[#050505b0] px-6"
+      className="relative min-h-screen overflow-hidden px-6"
     >
       {/* Texture */}
       <div
@@ -134,40 +134,6 @@ export default function Hero() {
           </div>
         );
       })}
-
-      {/* Top bar */}
-      <div className="relative z-30 mx-auto flex max-w-350 items-center justify-between pt-7">
-        <Link
-          href="#home"
-          className=" text-sm font-bold tracking-tight text-[#F97316] transition-colors hover:text-orange-300 sm:text-base"
-        >
-          RITANSHU BABUTA
-        </Link>
-
-        <nav className="hidden items-center gap-8 md:flex">
-          {[
-            ["About", "#about"],
-            ["Projects", "#projects"],
-            ["Experience", "#experience"],
-            ["Contact", "#contact"],
-          ].map(([label, href]) => (
-            <Link
-              key={label}
-              href={href}
-              className=" text-[11px] uppercase tracking-[0.3em] text-zinc-500 transition-colors hover:text-white"
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
-
-        <Link
-          href="#contact"
-          className=" rounded-full border border-orange-500/50 px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.25em] text-orange-300 transition-all duration-300 hover:border-orange-400 hover:bg-orange-500/10 hover:text-orange-200"
-        >
-          Let&apos;s Talk ↗
-        </Link>
-      </div>
 
       {/* Left annotation */}
       <div className="absolute left-[7%] top-[27%] z-10 hidden max-w-47.5 md:block">
