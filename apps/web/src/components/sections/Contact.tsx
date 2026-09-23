@@ -1,3 +1,4 @@
+"use client"
 import { motion } from "motion/react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { GithubIcon, Linkedin02Icon } from "@hugeicons/core-free-icons";
@@ -12,7 +13,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-white/10 px-6 py-32"
+      className="relative overflow-hidden border-t border-white/10 px-6 py-32 bg-[#080808b0]"
     >
       <div
         aria-hidden="true"

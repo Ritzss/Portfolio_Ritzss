@@ -7,7 +7,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden border-t border-white/10 px-6 py-28"
+      className="relative overflow-hidden border-t border-white/10 px-6 py-28 bg-[#080808b0]"
     >
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">

@@ -14,7 +14,7 @@ export default function Education() {
   }));
 
   return (
-    <section id="education" className="relative overflow-hidden border-t border-white/10 px-6 py-28">
+    <section id="education" className="relative overflow-hidden border-t border-white/10 px-6 py-28 bg-[#080808b0]">
       <div className="mx-auto max-w-6xl">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7 }}>
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-orange-500">06 / Education</p>
