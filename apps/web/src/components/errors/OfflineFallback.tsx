@@ -14,7 +14,7 @@ export default function OfflineFallback({
 }: OfflineFallbackProps) {
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#050505] px-6 text-[#F5F0E8]">
-      <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C2410C]/10 blur-[140px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 h-125 w-125 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C2410C]/10 blur-[140px]" />
 
       <div className="relative z-10 w-full max-w-4xl text-center">
         <p className="mb-10 text-[10px] uppercase tracking-[0.5em] text-zinc-600">
