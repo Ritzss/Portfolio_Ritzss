@@ -66,3 +66,59 @@ a {
     scroll-behavior: auto !important;
   }
 }
+
+@keyframes introLine {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes glitch {
+  0%,
+  88%,
+  100% {
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(0);
+  }
+
+  89% {
+    clip-path: inset(20% 0 65% 0);
+    transform: translateX(-3px);
+  }
+
+  90% {
+    clip-path: inset(60% 0 15% 0);
+    transform: translateX(3px);
+  }
+
+  91% {
+    clip-path: inset(35% 0 45% 0);
+    transform: translateX(-2px);
+  }
+
+  92% {
+    clip-path: inset(75% 0 5% 0);
+    transform: translateX(2px);
+  }
+
+  93% {
+    clip-path: inset(10% 0 75% 0);
+    transform: translateX(-3px);
+  }
+
+  94% {
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(0);
+  }
+}
+
+.animate-glitch-after {
+  animation: glitch var(--after-duration) infinite linear;
+}
+
+.animate-glitch-before {
+  animation: glitch var(--before-duration) infinite linear reverse;
+}

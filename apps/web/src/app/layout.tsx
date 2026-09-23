@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import NetworkStatus from "@/components/errors/NetworkStatus";
+import PortfolioCursor from "@/components/ui/PortfolioCursor";
+import SiteBackground from "@/components/ui/SiteBackground";
 
 export const metadata: Metadata = {
   title: "Ritanshu Babuta",
@@ -13,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body  cz-shortcut-listen="true">{children}</body>
+      <body cz-shortcut-listen="true">
+        {/* <SiteBackground /> */}
+        <PortfolioCursor />
+        <NetworkStatus />
+        {children}
+      </body>
     </html>
   );
 }

@@ -9,6 +9,7 @@ export interface Project {
   title: string;
   description: string;
   technologies: string[];
+  highlights?: string[];
   url?: string;
   github?: string;
   image?: string;
@@ -32,7 +33,7 @@ export interface Education {
   startDate: string;
   endDate: string;
   grade?: string;
-  description?: string;
+  description?: string[];
 }
 
 export interface Certification {
@@ -49,7 +50,29 @@ export interface SocialLink {
   label?: string;
 }
 
-export interface Skill {
-  name: string;
-  category: "Frontend" | "Backend" | "Database" | "Tools" | "Other";
+export interface About {
+  eyebrow: string;
+  heading: string;
+  paragraphs: string[];
+  closingStatement: string;
+}
+
+export interface Capability {
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface SkillGroup {
+  label: string;
+  children: {
+    value: string;
+    label: string;
+  }[];
+}
+
+export interface Contact {
+  email: string;
+  heading: string;
+  description: string;
 }

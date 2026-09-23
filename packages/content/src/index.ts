@@ -5,7 +5,10 @@ import type {
   Education,
   Certification,
   SocialLink,
-  Skill,
+  About,
+  SkillGroup,
+  Capability,
+  Contact,
 } from "@portfolio/types";
 
 export const profile: Profile = {
@@ -13,20 +16,14 @@ export const profile: Profile = {
   role: "Associate Full Stack Developer",
   tagline: "Building production web applications for real-world problems",
 
-  stack: [
-    "Next.js",
-    "React",
-    "Node.js",
-    "MongoDB",
-    "TypeScript",
-  ],
+  stack: ["Next.js", "React", "Node.js", "MongoDB", "TypeScript"],
 };
 
 export const projects: Project[] = [
   {
     title: "VastraDrobe",
     description:
-      "Production-ready fashion e-commerce platform built with Next.js, React, TypeScript, Tailwind CSS, and MongoDB.",
+      "Built and maintained production web applications using Next.js, React, Node.js, and MongoDB. Developed the VastraDrobe e-commerce platform across product discovery, variants, cart, accounts, and checkout workflows. Built internal inventory and business workflows covering products, warehouses, stock movements, orders, users, and administration. Designed REST APIs, authentication flows, database operations, and production integrations.",
     technologies: [
       "Next.js",
       "React",
@@ -34,6 +31,12 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "MongoDB",
       "Cloudinary",
+    ],
+    highlights: [
+      "Built product discovery and category experiences",
+      "Implemented product variants, sizes, designs, cart, and favorites",
+      "Connected the storefront with backend inventory workflows",
+      "Integrated Cloudinary media and production deployment",
     ],
     url: "https://www.vastradrobe.com/",
     image: "/projects/vastradrobe.webp",
@@ -81,15 +84,9 @@ export const experience: Experience[] = [
       "Built responsive web pages and implemented frontend components following web development fundamentals.",
       "Gained practical experience with client-side development, server-side concepts, debugging, and cross-browser compatibility.",
     ],
-    technologies: [
-      "HTML5",
-      "CSS",
-      "JavaScript",
-      "PHP",
-      "React.js",
-    ],
+    technologies: ["HTML5", "CSS", "JavaScript", "PHP", "React.js"],
   },
-  
+
   {
     company: "National Council of Educational Research and Training (NCERT)",
     role: "Web Developer",
@@ -102,16 +99,8 @@ export const experience: Experience[] = [
       "Worked with MySQL databases and improved database response efficiency through query optimization.",
       "Participated in debugging, testing, software enhancement, and feature implementation under senior developer supervision.",
     ],
-    technologies: [
-      "HTML5",
-      "CSS",
-      "JavaScript",
-      "Bootstrap",
-      "PHP",
-      "MySQL",
-    ],
+    technologies: ["HTML5", "CSS", "JavaScript", "Bootstrap", "PHP", "MySQL"],
   },
-
 ];
 
 export const education: Education[] = [
@@ -119,21 +108,27 @@ export const education: Education[] = [
     institution: "Delhi Technical Campus",
     degree: "Bachelor of Technology",
     field: "Computer Science Engineering",
-    startDate: "2021",
-    endDate: "2025",
+    startDate: "August 2021",
+    endDate: "August 2025",
     grade: "8 CGPA",
-    description:
-      "B.Tech in Computer Science Engineering with a Minor in Artificial Intelligence.",
+    description: [
+      "Completed a B.Tech in Computer Science Engineering with a Minor in Artificial Intelligence.",
+      "Built a strong foundation in software development, programming, databases, computer systems, and problem-solving.",
+      "Explored Artificial Intelligence and its applications alongside the core computer science curriculum.",
+    ],
   },
   {
     institution: "Sahoday Sr Sec School",
     degree: "Senior Secondary",
     field: "Science (PCM)",
-    startDate: "2019",
-    endDate: "2021",
+    startDate: "May 2019",
+    endDate: "May 2021",
     grade: "80%",
-    description:
-      "Completed Senior Secondary education in the Science stream with Physics, Chemistry, and Mathematics (PCM).",
+    description: [
+      "Completed Senior Secondary education in the Science stream with Physics, Chemistry, and Mathematics.",
+      "Developed a strong analytical and mathematical foundation through the PCM curriculum.",
+      "Built the academic foundation that led to my interest in computer science, programming, and technology.",
+    ],
   },
 ];
 
@@ -159,30 +154,81 @@ export const socialLinks: SocialLink[] = [
   },
 ];
 
-export const skills: Skill[] = [
-  // Frontend
-  { name: "JavaScript", category: "Frontend" },
-  { name: "TypeScript", category: "Frontend" },
-  { name: "React.js", category: "Frontend" },
-  { name: "Next.js", category: "Frontend" },
-  { name: "HTML5", category: "Frontend" },
-  { name: "CSS3", category: "Frontend" },
-  { name: "Tailwind CSS", category: "Frontend" },
-
-  // Backend
-  { name: "Node.js", category: "Backend" },
-  { name: "Express.js", category: "Backend" },
-  { name: "REST APIs", category: "Backend" },
-  { name: "PHP", category: "Backend" },
-
-  // Database
-  { name: "MongoDB", category: "Database" },
-  { name: "MySQL", category: "Database" },
-
-  // Tools
-  { name: "Git", category: "Tools" },
-  { name: "GitHub", category: "Tools" },
-  { name: "Postman", category: "Tools" },
-  { name: "Vercel", category: "Tools" },
-  { name: "Cloudinary", category: "Tools" },
+export const skillGroups: SkillGroup[] = [
+  {
+    label: "Frontend",
+    children: [
+      { value: "react", label: "React" },
+      { value: "nextjs", label: "Next.js" },
+      { value: "typescript", label: "TypeScript" },
+      { value: "javascript", label: "JavaScript" },
+      { value: "tailwind", label: "Tailwind CSS" },
+    ],
+  },
+  {
+    label: "Backend",
+    children: [
+      { value: "nodejs", label: "Node.js" },
+      { value: "express", label: "Express.js" },
+      { value: "rest", label: "REST APIs" },
+      { value: "auth", label: "Authentication & Authorization" },
+    ],
+  },
+  {
+    label: "Database",
+    children: [
+      { value: "mongodb", label: "MongoDB" },
+      { value: "mongoose", label: "Mongoose" },
+      { value: "indexing", label: "Database Indexing" },
+    ],
+  },
+  {
+    label: "Tools",
+    children: [
+      { value: "git", label: "Git" },
+      { value: "github", label: "GitHub" },
+      { value: "cloudinary", label: "Cloudinary" },
+      { value: "vercel", label: "Vercel" },
+    ],
+  },
 ];
+
+export const capabilities: Capability[] = [
+  {
+    number: "01",
+    title: "Production Web Apps",
+    description:
+      "Building responsive applications with React and Next.js, from reusable interfaces to production-ready workflows.",
+  },
+  {
+    number: "02",
+    title: "E-commerce",
+    description:
+      "Working across product discovery, variants, search, cart, checkout, accounts, orders, and the systems behind them.",
+  },
+  {
+    number: "03",
+    title: "Business Systems",
+    description:
+      "Developing internal tools and APIs for inventory, warehouses, stock movement, users, administration, and operational workflows.",
+  },
+];
+
+export const about: About = {
+  eyebrow: "A little about me",
+  heading: "I build things that actually work.",
+  paragraphs: [
+    "I'm an Associate Full Stack Developer focused on building production web applications and solving practical problems through software.",
+    "My work spans frontend interfaces, backend APIs, databases, authentication, business logic, and the workflows that connect them. I enjoy working on products where the interface is only one part of the problem.",
+    "I've worked on e-commerce platforms as well as internal business systems, giving me experience with both customer-facing experiences and the operational systems behind them.",
+  ],
+  closingStatement:
+    "From interface to database, I like understanding how the whole thing fits together.",
+};
+
+export const contact: Contact = {
+  email: "ritanshubabuta399@gmail.com",
+  heading: "Let's build something worth building.",
+  description:
+    "Whether it's a product, a web application, or a problem that needs solving, I'm always interested in working on meaningful software.",
+};

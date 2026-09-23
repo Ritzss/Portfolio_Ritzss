@@ -7,10 +7,13 @@ import Experience from "@/components/sections/Experiences";
 import Education from "@/components/sections/Education";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
+import Intro from "@/components/layout/Intro";
 
 export default function Home() {
   return (
     <>
+    <Intro />
+
       <Navbar />
 
       <main>
