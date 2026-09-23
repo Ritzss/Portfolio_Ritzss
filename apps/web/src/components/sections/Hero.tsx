@@ -175,7 +175,7 @@ export default function Hero() {
       </div>
 
       {/* Main content */}
-      <div className="relative z-20 mx-auto flex min-h-[calc(100vh-90px)] max-w-350 items-center justify-center">
+      <div className="mt-15 relative z-20 mx-auto flex min-h-[calc(100vh-90px)] max-w-350 items-center justify-center">
         <div className="relative w-full text-center">
           {/* Role */}
           <p className="mb-5 text-[10px] uppercase tracking-[0.5em] text-zinc-600 sm:text-xs">

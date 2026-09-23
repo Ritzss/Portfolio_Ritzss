@@ -1,15 +1,20 @@
-"use client"
+"use client";
 import { motion } from "motion/react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { GithubIcon, Linkedin02Icon } from "@hugeicons/core-free-icons";
 import { contact, socialLinks } from "@portfolio/content";
 import FuseButton from "../ui/FuseButton";
 import Link from "next/link";
+import { useState } from "react";
+import StatusMark from "../ui/StatusMark";
 
 export default function Contact() {
   const github = socialLinks.find((link) => link.platform === "GitHub");
   const linkedin = socialLinks.find((link) => link.platform === "LinkedIn");
-  
+  const [resumeStatus, setResumeStatus] = useState<
+    "pending" | "running" | "done" | "failed"
+  >("pending");
+
   return (
     <section
       id="contact"
@@ -106,6 +111,44 @@ export default function Contact() {
               }}
             />
           )}
+
+          <a
+            href="/resume.pdf"
+            download="Ritanshu-Babuta-Resume.pdf"
+            aria-label="Download resume"
+            onClick={() => {
+              setResumeStatus("running");
+
+              setTimeout(() => {
+                setResumeStatus("done");
+              }, 800);
+
+              setTimeout(() => {
+                setResumeStatus("pending");
+              }, 2200);
+            }}
+            className="inline-flex cursor-target"
+          >
+            <StatusMark
+              status={resumeStatus}
+              label={
+                resumeStatus === "running"
+                  ? "Downloading Resume"
+                  : resumeStatus === "done"
+                    ? "Resume Downloaded"
+                    : "Download Resume"
+              }
+              color="#F97316"
+              doneColor="#22C55E"
+              errorColor="#EF4444"
+              size={18}
+              strokeWidth={2}
+              fontSize={13}
+              dashes={8}
+              strike={false}
+              className="rounded-full border border-orange-500/30 bg-orange-500/5 px-5 py-3 transition-all duration-300 hover:border-orange-500/60 hover:bg-orange-500/10"
+            />
+          </a>
         </motion.div>
 
         <div className="mt-24 flex flex-col gap-4 border-t border-white/10 pt-6 text-[10px] uppercase tracking-[0.25em] text-zinc-600 sm:flex-row sm:items-center sm:justify-between">
