@@ -183,14 +183,14 @@ export default function Hero() {
           </p>
 
           {/* Main title */}
-          <h1 className=" select-none text-[18vw] font-black uppercase leading-[0.72] tracking-[-0.075em] text-[#F5F0E8] sm:text-[17vw] md:text-[15vw] lg:text-[14vw]">
+          <h1 className=" select-none text-[18vw] font-black uppercase leading-[0.72] tracking-[-0.075em] text-[#F97316] sm:text-[17vw] md:text-[15vw] lg:text-[14vw]">
             PORTFOLIO
           </h1>
 
           {/* Name */}
-          <div className=" relative z-20 mt-[-1vw] -rotate-3 font-['Brush_Script_MT','Segoe_Script','cursive'] text-[13vw] leading-none tracking-[-0.04em] text-[#F97316] drop-shadow-[0_10px_30px_rgba(194,65,12,0.2)] sm:text-[11vw] md:text-[9vw] lg:text-[8vw]">
+          <div className=" relative z-20 mt-[-1vw] -rotate-3 font-['Brush_Script_MT','Segoe_Script','cursive'] text-[13vw] leading-none tracking-[-0.04em] text-[#F5F0E8] drop-shadow-[0_10px_30px_rgba(194,65,12,0.2)] sm:text-[11vw] md:text-[9vw] lg:text-[8vw]">
             Ritanshu Babuta
-            <div className="mx-auto mt-1 h-0.75 w-[58%] -rotate-2 rounded-full bg-[#F97316] sm:h-1" />
+            <div className="mx-auto mt-1 h-0.75 w-[58%] -rotate-2 rounded-full bg-[#F5F0E8] sm:h-1" />
           </div>
 
           {/* Description */}
