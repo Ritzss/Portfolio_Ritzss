@@ -64,7 +64,7 @@ export default function VisualLog() {
           </p>
         </div>
 
-        <div className="relative h-150 overflow-hidden rounded-3xl border border-white/10 bg-black/40">
+        <div className="relative h-150 overflow-hidden rounded-3xl border border-white/10 bg-black">
           <DriftWall
             items={items}
             columns={4}

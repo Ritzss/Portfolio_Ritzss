@@ -154,18 +154,18 @@ export default function FeedbackForm() {
         backButtonText="Back"
         disableStepIndicators
         hideFooterOnLastStep
-        className="w-full"
+        className="w-full cursor-none"
         stepCircleContainerClassName="border-white/10 bg-[#0a0a0a]"
         stepContainerClassName="border-white/5"
         contentClassName="text-white"
         footerClassName="border-t border-white/5"
         nextButtonProps={{
           className:
-            "rounded-full bg-orange-500 px-5 py-2 text-sm font-medium text-black transition hover:bg-orange-400",
+            "rounded-full cursor-none bg-orange-500 px-5 py-2 text-sm font-medium text-black transition hover:bg-orange-400",
         }}
         backButtonProps={{
           className:
-            "rounded-full border border-white/10 px-5 py-2 text-sm text-zinc-400 transition hover:border-white/20 hover:text-white",
+            "rounded-full cursor-none border border-white/10 px-5 py-2 text-sm text-zinc-400 transition hover:border-white/20 hover:text-white",
         }}
         validateStep={(step) => {
           if (step === 1) {
@@ -246,7 +246,7 @@ export default function FeedbackForm() {
                     key={item.value}
                     type="button"
                     onClick={() => updateForm("type", item.value)}
-                    className={`cursor-target rounded-xl border px-4 py-4 text-left text-sm transition-all duration-300 ${
+                    className={`cursor-target cursor-none rounded-xl border px-4 py-4 text-left text-sm transition-all duration-300 ${
                       active
                         ? "border-orange-500/60 bg-orange-500/10 text-white"
                         : "border-white/10 bg-white/2 text-zinc-400 hover:border-white/20 hover:text-white"

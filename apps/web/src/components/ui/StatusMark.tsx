@@ -137,7 +137,7 @@ const StatusMark: React.FC<StatusMarkProps> = ({
 
   return (
     <span
-      className={`group relative inline-flex items-center align-middle leading-none [gap:calc(var(--sm-size)*0.5)]${className ? ` ${className}` : ''}`}
+      className={`group cursor-none relative inline-flex items-center align-middle leading-none [gap:calc(var(--sm-size)*0.5)]${className ? ` ${className}` : ''}`}
       data-status={status}
       data-indeterminate={indeterminate ? '' : undefined}
       data-strike={strike ? '' : undefined}

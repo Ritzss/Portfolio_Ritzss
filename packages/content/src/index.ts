@@ -42,6 +42,7 @@ export const projects: Project[] = [
     image: "/projects/vastradrobe.webp",
     featured: true,
   },
+  
 ];
 
 export const experience: Experience[] = [
