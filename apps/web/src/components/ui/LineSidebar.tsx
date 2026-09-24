@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/immutability */
 /* eslint-disable react-hooks/refs */
+"use client"
+
 import { useRef, useState, useCallback, useEffect, type CSSProperties } from 'react';
 
 type Falloff = 'linear' | 'smooth' | 'sharp';
@@ -201,7 +203,7 @@ const LineSidebar = ({
             }}
             aria-current={activeIndex === index ? 'true' : undefined}
             onClick={() => handleClick(index, label)}
-            className={`relative cursor-pointer before:absolute before:-inset-x-12 before:-inset-y-1.5 before:content-[''] ${tickClass}`}
+            className={`relative cursor-none before:absolute before:-inset-x-12 before:-inset-y-1.5 before:content-[''] ${tickClass}`}
           >
             {showMarker && (
               <span

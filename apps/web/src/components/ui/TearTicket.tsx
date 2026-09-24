@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/refs */
 /* eslint-disable react-hooks/set-state-in-effect */
+"use client"
+
 import React, {
   useEffect,
   useLayoutEffect,

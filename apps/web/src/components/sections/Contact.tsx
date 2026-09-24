@@ -1,24 +1,38 @@
 "use client";
+
 import { motion } from "motion/react";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { GithubIcon, Linkedin02Icon } from "@hugeicons/core-free-icons";
-import { contact, socialLinks } from "@portfolio/content";
+import {
+  GithubIcon,
+  Linkedin02Icon,
+} from "@hugeicons/core-free-icons";
+import {
+  contact,
+  socialLinks,
+} from "@portfolio/content";
 import FuseButton from "../ui/FuseButton";
-import Link from "next/link";
-import { useState } from "react";
 import StatusMark from "../ui/StatusMark";
+import FeedbackForm from "../feedback/FeedbackForm";
+import { useState } from "react";
 
 export default function Contact() {
-  const github = socialLinks.find((link) => link.platform === "GitHub");
-  const linkedin = socialLinks.find((link) => link.platform === "LinkedIn");
-  const [resumeStatus, setResumeStatus] = useState<
-    "pending" | "running" | "done" | "failed"
-  >("pending");
+  const github = socialLinks.find(
+    (link) => link.platform === "GitHub"
+  );
+
+  const linkedin = socialLinks.find(
+    (link) => link.platform === "LinkedIn"
+  );
+
+  const [resumeStatus, setResumeStatus] =
+    useState<
+      "pending" | "running" | "done" | "failed"
+    >("pending");
 
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-white/10 px-6 py-32 bg-[#080808b0]"
+      className="relative overflow-hidden border-t border-white/10 bg-[#080808b0] px-6 py-32"
     >
       <div
         aria-hidden="true"
@@ -27,10 +41,21 @@ export default function Contact() {
 
       <div className="relative z-10 mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8 }}
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
         >
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-orange-500">
             07 / Contact
@@ -46,35 +71,64 @@ export default function Contact() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          transition={{
+            duration: 0.8,
+            delay: 0.15,
+          }}
           className="mt-16"
         >
-          <Link
+          <a
             href={`mailto:${contact.email}`}
             className="group inline-flex w-fit items-center gap-4 border-b border-white/20 pb-3 text-xl text-white transition-colors duration-300 hover:border-orange-500 hover:text-orange-400 sm:text-2xl"
           >
             {contact.email}
+
             <span className="text-orange-500 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
               ↗
             </span>
-          </Link>
+          </a>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 0.25,
+          }}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
           {github && (
             <FuseButton
               label="GitHub"
               icon={
-                <HugeiconsIcon icon={GithubIcon} size={16} strokeWidth={1.8} />
+                <HugeiconsIcon
+                  icon={GithubIcon}
+                  size={16}
+                  strokeWidth={1.8}
+                />
               }
               color="#F5F0E8"
               background="#111111"
@@ -84,7 +138,11 @@ export default function Contact() {
               commitOn="fuseEnd"
               settle="reset"
               onCommit={() => {
-                window.open(github.url, "_blank", "noopener,noreferrer");
+                window.open(
+                  github.url,
+                  "_blank",
+                  "noopener,noreferrer"
+                );
               }}
             />
           )}
@@ -107,7 +165,11 @@ export default function Contact() {
               commitOn="fuseEnd"
               settle="reset"
               onCommit={() => {
-                window.open(linkedin.url, "_blank", "noopener,noreferrer");
+                window.open(
+                  linkedin.url,
+                  "_blank",
+                  "noopener,noreferrer"
+                );
               }}
             />
           )}
@@ -151,8 +213,50 @@ export default function Contact() {
           </a>
         </motion.div>
 
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 35,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.15,
+          }}
+          transition={{
+            duration: 0.8,
+            delay: 0.35,
+          }}
+          className="mt-24 grid gap-12 border-t border-white/10 pt-16 lg:grid-cols-[0.7fr_1.3fr]"
+        >
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-orange-500">
+              Leave a message
+            </p>
+
+            <h3 className="mt-5 max-w-md text-3xl font-medium tracking-tight text-white sm:text-4xl">
+              Have something to say?
+            </h3>
+
+            <p className="mt-5 max-w-md text-sm leading-7 text-zinc-500">
+              Share feedback about the site, ask about
+              a project, discuss an opportunity, or get
+              in touch about collaboration.
+            </p>
+          </div>
+
+          <div className="w-full overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0a]/80">
+            <FeedbackForm />
+          </div>
+        </motion.div>
+
         <div className="mt-24 flex flex-col gap-4 border-t border-white/10 pt-6 text-[10px] uppercase tracking-[0.25em] text-zinc-600 sm:flex-row sm:items-center sm:justify-between">
-          <span>Ritanshu Babuta · Full Stack Developer</span>
+          <span>
+            Ritanshu Babuta · Full Stack Developer
+          </span>
 
           <span className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-orange-500" />

@@ -24,10 +24,10 @@ export default function About() {
       <div aria-hidden="true" className="pointer-events-none absolute right-[-10%] top-[10%] h-125 w-125 rounded-full bg-[#C2410C]/6 blur-[130px]" />
 
       <div className="relative mx-auto max-w-350">
-        <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="flex items-center gap-4">
+        <div className="flex items-center gap-4">
           <span className="h-px w-10 bg-[#F97316]" />
           <p className="text-[10px] uppercase tracking-[0.45em] text-zinc-600">01 / About</p>
-        </motion.div>
+        </div>
 
         <div className="mt-16 grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
           <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
@@ -42,7 +42,7 @@ export default function About() {
             </h2>
           </motion.div>
 
-          <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} transition={{ delay: 0.15 }} className="flex flex-col justify-end">
+          <div className="flex flex-col justify-end">
             <div className="max-w-xl border-l border-[#C2410C]/40 pl-6 sm:pl-8">
               {about.paragraphs.map((paragraph, index) => (
                 <p key={paragraph} className={`${index === 0 ? "text-lg text-zinc-300" : "mt-6 text-base text-zinc-500"} leading-8`}>
@@ -50,10 +50,10 @@ export default function About() {
                 </p>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div initial={{ scaleX: 0, opacity: 0 }} whileInView={{ scaleX: 1, opacity: 1 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.8, ease: "easeOut" }} className="my-20 h-px origin-left bg-white/10" />
+        <div className="my-20 h-px origin-left bg-white/10" />
 
         <div className="grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:grid-cols-3">
           {capabilities.map((item, index) => (
@@ -72,7 +72,7 @@ export default function About() {
           ))}
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.7 }} className="mt-20 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mt-20 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <p className="max-w-2xl text-2xl font-medium leading-relaxed tracking-tight text-zinc-300 sm:text-3xl">
             {about.closingStatement}
           </p>
@@ -80,7 +80,7 @@ export default function About() {
           <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-700">
             React / Next.js / Node / MongoDB
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

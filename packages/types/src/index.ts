@@ -76,3 +76,23 @@ export interface Contact {
   heading: string;
   description: string;
 }
+
+export type FeedbackType =
+  | "feedback"
+  | "project"
+  | "job"
+  | "collaboration"
+  | "other";
+
+export type FeedbackStatus = "new" | "read" | "resolved";
+
+export interface Feedback {
+  name: string;
+  email: string;
+  type: FeedbackType;
+  message: string;
+  rating?: number;
+  status: FeedbackStatus;
+  createdAt: Date;
+  updatedAt: Date;
+}

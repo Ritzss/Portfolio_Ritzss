@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/refs */
+"use client"
+
 import React, {
   useEffect,
   useRef,
@@ -265,7 +267,7 @@ const FlipCard: React.FC<FlipCardProps> = ({
       aria-pressed={shown}
       aria-label={ariaLabel}
       aria-disabled={disabled || undefined}
-      className={`group relative inline-block max-w-full cursor-pointer touch-pan-y select-none outline-none w-(--fc-w) h-(--fc-h) rounded-(--fc-radius) [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] data-[axis=x]:touch-pan-x data-draggable:cursor-grab data-dragging:cursor-grabbing data-disabled:cursor-default data-[disabled]:opacity-60${className ? ` ${className}` : ''}`}
+      className={`group relative inline-block max-w-full cursor-none touch-pan-y select-none outline-none w-(--fc-w) h-(--fc-h) rounded-(--fc-radius) [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] data-[axis=x]:touch-pan-x data-draggable:cursor-grab data-dragging:cursor-grabbing data-disabled:cursor-default data-[disabled]:opacity-60${className ? ` ${className}` : ''}`}
       data-axis={axis}
       data-draggable={draggable && !disabled && !reduce ? '' : undefined}
       data-dragging={dragging ? '' : undefined}

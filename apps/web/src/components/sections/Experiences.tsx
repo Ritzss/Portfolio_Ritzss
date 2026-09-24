@@ -1,4 +1,3 @@
-"use client";
 
 import { experience } from "@portfolio/content";
 import FlipCard from "../ui/FlipCard";

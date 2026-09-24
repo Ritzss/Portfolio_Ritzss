@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/set-state-in-effect */
+"use client"
+
 import { CSSProperties, HTMLAttributes, useEffect, useMemo, useRef, useState } from 'react';
 
 type TileState = {

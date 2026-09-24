@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { animate, motion, useMotionValue, useReducedMotion, useTransform, type MotionValue } from 'motion/react';
 
@@ -378,7 +380,7 @@ const RubberSegment: React.FC<RubberSegmentProps> = ({
           aria-checked={i === index}
           tabIndex={i === index ? 0 : -1}
           disabled={disabled}
-          className="inline-flex h-[calc(var(--rs-h)-var(--rs-inset)*2)] min-w-(--rs-min) items-center justify-center gap-1.5 m-0 border-0 bg-transparent px-(--rs-pad) py-0 rounded-(--rs-thumb-radius) [font:inherit] text-(length:--rs-font) font-medium leading-none whitespace-nowrap outline-none [transition:opacity_160ms_ease,transform_160ms_var(--rs-ease-out)] motion-reduce:[transition:opacity_160ms_ease] cursor-pointer text-(--rs-ink) opacity-70 aria-checked:cursor-default group-data-draggable:aria-checked:cursor-grab group-data-held:cursor-grabbing data-pressed:transform-[scale(0.96)] focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-(--rs-thumb) [@media(hover:hover)_and_(pointer:fine)]:[&[aria-checked=false]:hover]:opacity-90"
+          className="inline-flex h-[calc(var(--rs-h)-var(--rs-inset)*2)] min-w-(--rs-min) items-center justify-center gap-1.5 m-0 border-0 bg-transparent px-(--rs-pad) py-0 rounded-(--rs-thumb-radius) [font:inherit] text-(length:--rs-font) font-medium leading-none whitespace-nowrap outline-none [transition:opacity_160ms_ease,transform_160ms_var(--rs-ease-out)] motion-reduce:[transition:opacity_160ms_ease] cursor-none text-(--rs-ink) opacity-70 aria-checked:cursor-default group-data-draggable:aria-checked:cursor-grab group-data-held:cursor-grabbing data-pressed:transform-[scale(0.96)] focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-(--rs-thumb) [@media(hover:hover)_and_(pointer:fine)]:[&[aria-checked=false]:hover]:opacity-90"
           onPointerDown={e => handlePointerDown(e, i)}
           onKeyDown={handleKeyDown}
         >

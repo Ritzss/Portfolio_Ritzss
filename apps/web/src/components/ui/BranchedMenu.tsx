@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/refs */
+"use client"
+
 import React, { isValidElement, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
 import {
@@ -196,7 +198,7 @@ const BranchedMenu: React.FC<BranchedMenuProps> = ({
                 heads.current[i] = el;
               }}
               type="button"
-              className="m-0 block cursor-pointer border-0 bg-transparent py-2.25 text-left font-medium outline-none text-(--bm-muted) font-[inherit] text-[calc(var(--bm-font)+1px)] [-webkit-tap-highlight-color:transparent] [transition:color_200ms_ease] group-data-open/section:text-(--bm-ink) data-active:text-(--bm-ink) hover:text-(--bm-ink)"
+              className="m-0 block cursor-none border-0 bg-transparent py-2.25 text-left font-medium outline-none text-(--bm-muted) font-[inherit] text-[calc(var(--bm-font)+1px)] [-webkit-tap-highlight-color:transparent] [transition:color_200ms_ease] group-data-open/section:text-(--bm-ink) data-active:text-(--bm-ink) hover:text-(--bm-ink)"
               aria-expanded={kids ? isOpen : undefined}
               aria-current={leafActive ? 'true' : undefined}
               data-active={leafActive ? '' : undefined}
@@ -241,7 +243,7 @@ const BranchedMenu: React.FC<BranchedMenuProps> = ({
                       <button
                         key={kid.value}
                         type="button"
-                        className="m-0 box-border flex w-full cursor-pointer items-center gap-2 border-0 bg-transparent py-0 pr-0 text-left outline-none h-(--bm-row) pl-(--bm-indent) text-(--bm-muted) font-[inherit] [-webkit-tap-highlight-color:transparent] [transition:color_200ms_ease] hover:text-(--bm-ink) data-active:font-medium data-active:text-(--bm-accent)"
+                        className="m-0 box-border flex w-full cursor-none items-center gap-2 border-0 bg-transparent py-0 pr-0 text-left outline-none h-(--bm-row) pl-(--bm-indent) text-(--bm-muted) font-[inherit] [-webkit-tap-highlight-color:transparent] [transition:color_200ms_ease] hover:text-(--bm-ink) data-active:font-medium data-active:text-(--bm-accent)"
                         aria-current={kid.value === active ? 'true' : undefined}
                         data-active={kid.value === active ? '' : undefined}
                         tabIndex={isOpen ? 0 : -1}

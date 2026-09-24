@@ -21,7 +21,7 @@
   ],
   "author": "Ritanshu Babuta",
   "license": "MIT",
-  "packageManager": "pnpm@12.5.1",
+  "packageManager": "pnpm@12.6.0",
   "devDependencies": {
     "turbo": "^2.11.2"
   }

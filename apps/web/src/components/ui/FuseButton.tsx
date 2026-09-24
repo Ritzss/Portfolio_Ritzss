@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/refs */
+"use client"
+
 import React, { useEffect, useId, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Archive02Icon, Tick02Icon, Undo02Icon } from '@hugeicons/core-free-icons';
@@ -257,7 +259,7 @@ const FuseButton: React.FC<FuseButtonProps> = ({
       <button
         ref={idleRef}
         type={type}
-        className="fb-idle relative [grid-area:1/1] inline-flex h-full w-full min-w-0 items-center justify-center gap-2 m-0 border-0 bg-transparent px-(--fb-px) whitespace-nowrap cursor-pointer invisible opacity-0 filter-[blur(2px)] text-inherit [font:inherit] tracking-[inherit]sition:opacity_var(--fb-fade)_ease,filter_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade),background-color_160ms_ease] motion-reduce:filter-none motion-reduce:[transition:opacity_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade)] group-data-instant:duration-[0s] group-data-[phase=idle]:visible group-data-[phase=idle]:opacity-100 group-data-[phase=idle]:filter-[blur(0)] group-data-[phase=idle]:delay-[0s] disabled:cursor-default focus-visible:outline-none [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:[background:color-mix(in_srgb,var(--fb-ink)_7%,transparent)]"
+        className="fb-idle relative [grid-area:1/1] inline-flex h-full w-full min-w-0 items-center justify-center gap-2 m-0 border-0 bg-transparent px-(--fb-px) whitespace-nowrap cursor-none invisible opacity-0 filter-[blur(2px)] text-inherit [font:inherit] tracking-[inherit]sition:opacity_var(--fb-fade)_ease,filter_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade),background-color_160ms_ease] motion-reduce:filter-none motion-reduce:[transition:opacity_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade)] group-data-instant:duration-[0s] group-data-[phase=idle]:visible group-data-[phase=idle]:opacity-100 group-data-[phase=idle]:filter-[blur(0)] group-data-[phase=idle]:delay-[0s] disabled:cursor-default focus-visible:outline-none [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:[background:color-mix(in_srgb,var(--fb-ink)_7%,transparent)]"
         disabled={disabled}
         inert={phase !== 'idle'}
         onClick={arm}
@@ -273,7 +275,7 @@ const FuseButton: React.FC<FuseButtonProps> = ({
       <button
         ref={undoRef}
         type="button"
-        className="relative [grid-area:1/1] inline-flex h-full w-full min-w-0 items-center justify-center gap-2 m-0 border-0 bg-transparent px-(--fb-px) whitespace-nowrap cursor-pointer invisible opacity-0 filter-[blur(2px)] text-inherit [font:inherit] tracking-[inherit] [transition:opacity_var(--fb-fade)_ease,filter_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade),background-color_160ms_ease] motion-reduce:filter-none motion-reduce:[transition:opacity_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade)] group-data-instant:duration-[0s] group-data-[phase=armed]:visible group-data-[phase=armed]:opacity-100 group-data-[phase=armed]:filter-[blur(0)] group-data-[phase=armed]:delay-[0s] focus-visible:outline-none [@media(hover:hover)_and_(pointer:fine)]:hover:[background:color-mix(in_srgb,var(--fb-ink)_7%,transparent)]"
+        className="relative [grid-area:1/1] inline-flex h-full w-full min-w-0 items-center justify-center gap-2 m-0 border-0 bg-transparent px-(--fb-px) whitespace-nowrap cursor-none invisible opacity-0 filter-[blur(2px)] text-inherit [font:inherit] tracking-[inherit] [transition:opacity_var(--fb-fade)_ease,filter_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade),background-color_160ms_ease] motion-reduce:filter-none motion-reduce:[transition:opacity_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade)] group-data-instant:duration-[0s] group-data-[phase=armed]:visible group-data-[phase=armed]:opacity-100 group-data-[phase=armed]:filter-[blur(0)] group-data-[phase=armed]:delay-[0s] focus-visible:outline-none [@media(hover:hover)_and_(pointer:fine)]:hover:[background:color-mix(in_srgb,var(--fb-ink)_7%,transparent)]"
         aria-describedby={statusId}
         aria-keyshortcuts="Escape"
         inert={phase !== 'armed'}
@@ -289,7 +291,7 @@ const FuseButton: React.FC<FuseButtonProps> = ({
         {fuse !== 'outline' ? line : null}
       </button>
       <span
-        className="relative [grid-area:1/1] inline-flex h-full w-full min-w-0 items-center justify-center gap-2 m-0 border-0 bg-transparent px-(--fb-px) whitespace-nowrap cursor-pointer invisible opacity-0 filter-[blur(2px)] text-inherit [font:inherit] tracking-[inherit] [transition:opacity_var(--fb-fade)_ease,filter_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade),background-color_160ms_ease] motion-reduce:filter-none motion-reduce:[transition:opacity_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade)] group-data-instant:duration-[0s] group-data-[phase=settled]:visible group-data-[phase=settled]:opacity-100 group-data-[phase=settled]:filter-[blur(0)] group-data-[phase=settled]:delay-[0s]"
+        className="relative [grid-area:1/1] inline-flex h-full w-full min-w-0 items-center justify-center gap-2 m-0 border-0 bg-transparent px-(--fb-px) whitespace-nowrap cursor-none invisible opacity-0 filter-[blur(2px)] text-inherit [font:inherit] tracking-[inherit] [transition:opacity_var(--fb-fade)_ease,filter_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade),background-color_160ms_ease] motion-reduce:filter-none motion-reduce:[transition:opacity_var(--fb-fade)_ease,visibility_0s_linear_var(--fb-fade)] group-data-instant:duration-[0s] group-data-[phase=settled]:visible group-data-[phase=settled]:opacity-100 group-data-[phase=settled]:filter-[blur(0)] group-data-[phase=settled]:delay-[0s]"
         inert={phase !== 'settled'}
       >
         <span
