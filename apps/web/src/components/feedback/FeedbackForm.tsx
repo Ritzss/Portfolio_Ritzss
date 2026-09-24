@@ -355,7 +355,7 @@ export default function FeedbackForm() {
         </Step>
       </Stepper>
 
-      <style jsx>{`
+      <style>{`
         @keyframes shrink {
           from {
             transform: scaleX(1);
