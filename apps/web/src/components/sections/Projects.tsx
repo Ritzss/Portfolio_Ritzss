@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { projects } from "@portfolio/content";
 import TearTicket from "../ui/TearTicket";
+import Link from "next/link";
 // import TearTicket from "@/components/effects/TearTicket";
 
 export default function Projects() {
@@ -160,7 +161,7 @@ export default function Projects() {
                 <div
                   className={`mx-auto max-w-5xl overflow-hidden transition-all duration-700 ${
                     torn
-                      ? "mt-10 max-h-[2000px] opacity-100 lg:max-h-[700px]"
+                      ? "mt-10 max-h-[2000px] opacity-100 lg:max-h-175"
                       : "mt-0 max-h-0 opacity-0"
                   }`}
                 >
@@ -206,14 +207,14 @@ export default function Projects() {
                       </div>
 
                       {project.url ? (
-                        <a
+                        <Link
                           href={project.url}
                           target="_blank"
                           rel="noreferrer"
                           className="cursor-target mt-8 inline-flex rounded-full border border-orange-500/40 px-5 py-3 text-xs uppercase tracking-[0.2em] text-orange-400 transition-colors hover:border-orange-500 hover:bg-orange-500/10 hover:text-orange-300"
                         >
                           View live project ↗
-                        </a>
+                        </Link>
                       ) : null}
                     </div>
                   </div>
