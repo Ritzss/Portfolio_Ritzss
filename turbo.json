@@ -6,7 +6,11 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "dist/**"]
+      "outputs": [".next/**", "dist/**"],
+      "env": [
+        "MONGODB_URI",
+        "FEEDBACK_RATE_LIMIT_SECRET"
+      ]
     },
     "lint": {
       "dependsOn": ["^lint"]
