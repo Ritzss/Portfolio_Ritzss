@@ -7,6 +7,12 @@ import SiteBackground from "@/components/ui/SiteBackground";
 export const metadata: Metadata = {
   title: "Ritanshu Babuta",
   description: "Associate Full Stack Developer",
+  applicationName: "Ritanshu Babuta",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Ritanshu Babuta",
+  },
 };
 
 export default function RootLayout({
