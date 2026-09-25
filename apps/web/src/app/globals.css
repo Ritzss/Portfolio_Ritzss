@@ -67,6 +67,18 @@ a {
   }
 }
 
+.portfolio-title {
+  -webkit-text-stroke: 0 transparent;
+  transition:
+    color 500ms ease,
+    -webkit-text-stroke 500ms ease;
+}
+
+.portfolio-title:hover {
+  color: transparent;
+  -webkit-text-stroke: 2px #f97316;
+}
+
 @keyframes introLine {
   from {
     transform: scaleX(0);

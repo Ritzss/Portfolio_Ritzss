@@ -80,10 +80,7 @@ const floatingItems = [
 
 export default function Hero() {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen overflow-hidden px-6"
-    >
+    <section id="home" className="relative min-h-screen overflow-hidden px-6">
       {/* Texture */}
       <div
         aria-hidden="true"
@@ -183,7 +180,7 @@ export default function Hero() {
           </p>
 
           {/* Main title */}
-          <h1 className=" select-none text-[18vw] font-black uppercase leading-[0.72] tracking-[-0.075em] text-[#F97316] sm:text-[17vw] md:text-[15vw] lg:text-[14vw]">
+          <h1 className=" portfolio-title select-none text-[18vw] font-black uppercase leading-[0.72] tracking-[-0.075em] text-[#F97316] transition-all duration-500 sm:text-[17vw] md:text-[15vw] lg:text-[14vw]">
             PORTFOLIO
           </h1>
 
@@ -247,9 +244,7 @@ export default function Hero() {
         aria-label="Scroll to About section"
         className=" absolute bottom-7 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center gap-3 text-zinc-600 transition-colors hover:text-orange-400"
       >
-        <div
-          className="cursor-target flex h-11 w-11 items-center justify-center rounded-full border border-white/10"
-        >
+        <div className="cursor-target flex h-11 w-11 items-center justify-center rounded-full border border-white/10">
           <span className="text-lg text-[#F97316]">↓</span>
         </div>
 
