@@ -812,7 +812,7 @@ const MagicBento: React.FC<BentoProps> = ({
                           {card.skills.map((skill) => (
                             <span
                               key={skill}
-                              className="rounded-md border border-white/10 bg-white/[0.03] px-2 py-1 text-[9px] text-zinc-400"
+                              className="rounded-md border border-white/10 bg-white/3 px-2 py-1 text-[9px] text-zinc-400"
                             >
                               {skill}
                             </span>
