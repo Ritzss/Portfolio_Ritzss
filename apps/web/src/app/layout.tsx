@@ -3,6 +3,7 @@ import "./globals.css";
 import NetworkStatus from "@/components/errors/NetworkStatus";
 import PortfolioCursor from "@/components/ui/PortfolioCursor";
 import SiteBackground from "@/components/ui/SiteBackground";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Ritanshu Babuta",
@@ -27,6 +28,7 @@ export default function RootLayout({
         <PortfolioCursor />
         <NetworkStatus />
         {children}
+        <Analytics />
       </body>
     </html>
   );
