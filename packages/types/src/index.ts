@@ -42,6 +42,8 @@ export interface Certification {
   issueDate: string;
   credentialId?: string;
   credentialUrl?: string;
+  description?: string[];
+  skills?: string[];
 }
 
 export interface SocialLink {

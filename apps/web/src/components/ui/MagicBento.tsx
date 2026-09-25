@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { gsap } from "gsap";
@@ -17,6 +17,10 @@ export interface BentoCardData {
   title: string;
   description: string;
   label: string;
+  meta?: string;
+  credentialId?: string;
+  variant?: "education" | "training";
+  skills?: string[];
 }
 
 export interface BentoProps {
@@ -613,6 +617,23 @@ const MagicBento: React.FC<BentoProps> = ({
               grid-template-columns: repeat(2, 1fr);
             }
           }
+
+          .card--education {
+            grid-column: span 1;
+          }
+
+          .card--training {
+            grid-column: 1 / -1;
+            aspect-ratio: auto !important;
+            min-height: 220px !important;
+          }
+
+          @media (max-width: 599px) {
+            .card--training {
+              grid-column: auto;
+              min-height: 220px !important;
+            }
+          }
           
           @media (min-width: 1024px) {
             .card-responsive {
@@ -718,7 +739,12 @@ const MagicBento: React.FC<BentoProps> = ({
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-2">
           {cards.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-colors duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+            const variantClass =
+              card.variant === "training"
+                ? "card--training"
+                : "card--education";
+
+            const baseClassName = `card ${variantClass} flex flex-col justify-start relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-colors duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
               enableBorderGlow ? "card--border-glow" : ""
             }`;
 
@@ -748,17 +774,61 @@ const MagicBento: React.FC<BentoProps> = ({
                   <div className="card__header flex justify-between gap-3 relative text-white">
                     <span className="card__label text-base">{card.label}</span>
                   </div>
-                  <div className="card__content flex flex-col relative text-white">
+
+                  <div
+                    className={`card__content flex flex-col relative text-white ${
+                      card.variant === "training" ? "mt-8" : "mt-12"
+                    }`}
+                  >
                     <h3
-                      className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? "text-clamp-1" : ""}`}
+                      className={`card__title font-normal text-base leading-6 m-0 ${
+                        textAutoHide ? "text-clamp-1" : ""
+                      }`}
                     >
                       {card.title}
                     </h3>
+
+                    {card.meta && (
+                      <p className="card__meta mt-2 text-xs font-medium text-zinc-300">
+                        {card.meta}
+                      </p>
+                    )}
+
                     <p
-                      className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? "text-clamp-2" : ""}`}
+                      className={`card__description mt-3 text-xs leading-5 text-zinc-400 ${
+                        textAutoHide ? "text-clamp-2" : ""
+                      }`}
                     >
                       {card.description}
                     </p>
+
+                    {card.skills && card.skills.length > 0 && (
+                      <div className="mt-5">
+                        <p className="mb-2 font-mono text-[9px] uppercase tracking-[0.2em] text-orange-500/80">
+                          Skills
+                        </p>
+
+                        <div className="flex flex-wrap gap-1.5">
+                          {card.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="rounded-md border border-white/10 bg-white/[0.03] px-2 py-1 text-[9px] text-zinc-400"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {card.credentialId && (
+                      <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-600">
+                        Credential ID ·{" "}
+                        <span className="text-zinc-400">
+                          {card.credentialId}
+                        </span>
+                      </p>
+                    )}
                   </div>
                 </ParticleCard>
               );

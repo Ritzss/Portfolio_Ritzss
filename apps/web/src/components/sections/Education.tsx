@@ -1,15 +1,40 @@
-
-// import MagicBento from "@/components/effects/MagicBento";
-import { education } from "@portfolio/content";
+import { certifications, education } from "@portfolio/content";
 import MagicBento from "../ui/MagicBento";
 
 export default function Education() {
-  const cards = education.map((item, index) => ({
+  const educationCards = education.map((item, index) => ({
     color: "#11100F",
-    label: `${String(index + 1).padStart(2, "0")} / ${item.startDate.split(" ").pop()} — ${item.endDate.split(" ").pop()}`,
+
+    label: `${String(index + 1).padStart(2, "0")} / ${item.startDate} — ${item.endDate}`,
+
     title: `${item.degree} · ${item.field}`,
-    description: `${item.institution}. ${item.description?.join(" ") ?? ""}`,
+
+    meta: item.institution,
+
+    description: item.description?.join(" ") ?? "",
+
+    variant: "education" as const,
   }));
+
+  const certificationCards = certifications.map((item) => ({
+    color: "#11100F",
+
+    label: `TR / ${item.issueDate}`,
+
+    title: item.name,
+
+    meta: `${item.issuer} · Professional Course`,
+
+    description: item.description?.join(" ") ?? "",
+
+    credentialId: item.credentialId,
+
+    skills: item.skills,
+
+    variant: "training" as const,
+  }));
+
+  const cards = [...educationCards, ...certificationCards];
 
   return (
     <section
@@ -19,7 +44,7 @@ export default function Education() {
       <div className="mx-auto max-w-6xl">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-orange-500">
-            06 / Education
+            06 / Education & Certifications
           </p>
 
           <h2 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-6xl">
@@ -27,8 +52,8 @@ export default function Education() {
           </h2>
 
           <p className="mt-6 max-w-xl text-sm leading-7 text-zinc-500 sm:text-base">
-            The academic journey that shaped my foundation in computer science,
-            mathematics, and technology.
+            From academic foundations to professional training, each step shaped
+            how I approach software, technology, and problem-solving.
           </p>
         </div>
 

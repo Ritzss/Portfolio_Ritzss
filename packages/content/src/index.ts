@@ -42,7 +42,6 @@ export const projects: Project[] = [
     image: "/projects/vastradrobe.webp",
     featured: true,
   },
-  
 ];
 
 export const experience: Experience[] = [
@@ -135,10 +134,26 @@ export const education: Education[] = [
 
 export const certifications: Certification[] = [
   {
-    name: "MERN Full Stack Development Professional Course",
+    name: "MERN Full Stack Development",
     issuer: "QSpiders",
     issueDate: "May 2026",
     credentialId: "JSP261457",
+
+    description: [
+      "Completed professional training focused on full-stack web development using MongoDB, Express.js, React, and Node.js.",
+      "Developed practical understanding of building responsive frontend applications, backend services, REST APIs, database-driven applications, and complete web development workflows.",
+      "Worked with JavaScript-based technologies across the frontend and backend, with emphasis on component-based UI development, server-side logic, CRUD operations, authentication, and database integration.",
+    ],
+
+    skills: [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "HTML & CSS",
+      "Git",
+    ],
   },
 ];
 
