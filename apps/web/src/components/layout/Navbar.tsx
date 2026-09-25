@@ -75,7 +75,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop navigation */}
-        <div className="absolute left-1/2 hidden -translate-x-1/2 md:block">
+        <div className="absolute left-1/2 hidden -translate-x-1/2 lg:block">
           <div className="rounded-xl border border-white/8 bg-white/2.5 p-1 shadow-inner shadow-white/2">
             <RubberSegment
               items={rubberItems}
@@ -148,7 +148,7 @@ export default function Navbar() {
 
       {/* Mobile navigation */}
       <div
-        className={`fixed inset-0 z-50 md:hidden ${
+        className={`fixed inset-0 z-50 lg:hidden ${
           open ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
