@@ -210,24 +210,271 @@ export const skillGroups: SkillGroup[] = [
   },
 ];
 
-export const capabilities: Capability[] = [
+export const capabilities = [
   {
     number: "01",
-    title: "Production Web Apps",
-    description:
-      "Building responsive applications with React and Next.js, from reusable interfaces to production-ready workflows.",
+    title: "REST APIs",
+    description: "Building structured APIs for products, inventory, orders, users, and business workflows.",
+    language: "typescript",
+    color: "#F97316",
+    code: `export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+
+    const {
+      productId,
+      warehouseId,
+      quantity,
+      size,
+    } = body;
+
+    if (!productId || !warehouseId || !quantity) {
+      return Response.json(
+        { error: "Required fields are missing" },
+        { status: 400 }
+      );
+    }
+
+    const inventory = await Inventory.findOne({
+      productId,
+      warehouseId,
+      size,
+    });
+
+    if (!inventory) {
+      return Response.json(
+        { error: "Inventory not found" },
+        { status: 404 }
+      );
+    }
+
+    inventory.stock += quantity;
+    await inventory.save();
+
+    return Response.json({
+      success: true,
+      inventory,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return Response.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
+  }
+}`,
   },
   {
     number: "02",
-    title: "E-commerce",
-    description:
-      "Working across product discovery, variants, search, cart, checkout, accounts, orders, and the systems behind them.",
+    title: "Database Design",
+    description: "Designing MongoDB schemas, indexes, queries, and data structures around real application workflows.",
+    language: "typescript",
+    color: "#3B82F6",
+    code: `const inventorySchema = new Schema(
+  {
+    productId: {
+      type: Number,
+      required: true,
+    },
+
+    warehouseId: {
+      type: Schema.Types.ObjectId,
+      ref: "Warehouse",
+      required: true,
+    },
+
+    size: {
+      type: String,
+      required: true,
+    },
+
+    stock: {
+      type: Number,
+      default: 0,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+inventorySchema.index(
+  {
+    productId: 1,
+    warehouseId: 1,
+    size: 1,
+  },
+  {
+    unique: true,
+  }
+);`,
   },
   {
     number: "03",
-    title: "Business Systems",
-    description:
-      "Developing internal tools and APIs for inventory, warehouses, stock movement, users, administration, and operational workflows.",
+    title: "Authentication",
+    description: "Building protected routes, JWT authentication, role-based access, and permission-driven workflows.",
+    language: "typescript",
+    color: "#8B5CF6",
+    code: `export async function authenticateRequest(
+  request: Request
+) {
+  const token = request.headers
+    .get("authorization")
+    ?.replace("Bearer ", "");
+
+  if (!token) return null;
+
+  try {
+    const payload = verifyToken(token);
+
+    if (!payload?.userId) {
+      return null;
+    }
+
+    const user = await Admin.findById(
+      payload.userId
+    );
+
+    if (!user || !user.isActive) {
+      return null;
+    }
+
+    return user;
+  } catch {
+    return null;
+  }
+}`,
+  },
+  {
+    number: "04",
+    title: "React / Next.js UI",
+    description: "Building reusable interfaces with React and Next.js, from interactive components to responsive production pages.",
+    language: "tsx",
+    color: "#61DAFB",
+    code: `export function ProductCard({
+  product,
+}: ProductCardProps) {
+  const [selectedSize, setSelectedSize] =
+    useState(product.sizes[0]);
+
+  const addToCart = () => {
+    if (!selectedSize) return;
+
+    addItem({
+      productId: product.productId,
+      name: product.name,
+      size: selectedSize,
+      price: product.price,
+      image: product.images[0],
+    });
+  };
+
+  return (
+    <article className="group">
+      <Link
+        href={\`/product/\${product.productId}\`}
+        className="block overflow-hidden"
+      >
+        <Image
+          src={product.images[0]}
+          alt={product.name}
+          width={600}
+          height={800}
+          className="transition-transform duration-500
+            group-hover:scale-105"
+        />
+      </Link>
+
+      <h3 className="mt-4 font-medium">
+        {product.name}
+      </h3>
+
+      <button
+        onClick={addToCart}
+        className="mt-4 rounded-full
+          bg-black px-5 py-2 text-white"
+      >
+        Add to Cart
+      </button>
+    </article>
+  );
+}`,
+  },
+  {
+    number: "05",
+    title: "Business Logic",
+    description: "Turning business requirements into workflows that keep inventory, orders, users, and application state consistent.",
+    language: "typescript",
+    color: "#10B981",
+    code: `const session = await mongoose.startSession();
+
+try {
+  session.startTransaction();
+
+  const inventory = await Inventory.findOne({
+    productId,
+    warehouseId,
+    size,
+  }).session(session);
+
+  if (!inventory || inventory.stock < quantity) {
+    throw new Error("Insufficient stock");
+  }
+
+  inventory.stock -= quantity;
+
+  await inventory.save({ session });
+
+  await StockMovement.create(
+    [{
+      productId,
+      warehouseId,
+      size,
+      quantity,
+      type: "OUT",
+    }],
+    { session }
+  );
+
+  await session.commitTransaction();
+} catch (error) {
+  await session.abortTransaction();
+  throw error;
+} finally {
+  session.endSession();
+}`,
+  },
+  {
+    number: "06",
+    title: "Integrations & Production",
+    description: "Connecting applications with external services and handling the realities of production deployments.",
+    language: "typescript",
+    color: "#F43F5E",
+    code: `const upload =
+  await cloudinary.uploader.upload(
+    fileBuffer,
+    {
+      folder: "products",
+      resource_type: "auto",
+    }
+  );
+
+const payment = await razorpay.orders.create({
+  amount: total * 100,
+  currency: "INR",
+  receipt: orderId,
+});
+
+await sendEmail({
+  to: customer.email,
+  subject: "Order confirmation",
+  template: "order-confirmation",
+  data: {
+    orderId,
+    amount: total,
+  },
+});`,
   },
 ];
 
@@ -358,7 +605,8 @@ export const beyond: BeyondData = {
           title: "The Dinosaurs",
           type: "series",
           tmdbId: 313298,
-          image:"https://image.tmdb.org/t/p/original/j64Q18ABQibT4rsy4Gpz2kU0hJY.jpg",
+          image:
+            "https://image.tmdb.org/t/p/original/j64Q18ABQibT4rsy4Gpz2kU0hJY.jpg",
         },
       ],
     },
@@ -415,7 +663,7 @@ export const beyond: BeyondData = {
   ],
 
   personalNote: {
-    eyebrow: "06 / Beyond Software",
+    eyebrow: "05 / Beyond Software",
     title:
       "Building software is what I do. Curiosity is what keeps me doing it.",
   },

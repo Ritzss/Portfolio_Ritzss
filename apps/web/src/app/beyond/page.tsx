@@ -60,9 +60,9 @@ export default function BeyondPage() {
 
         <Interests interests={beyond.interests} />
 
-        <ApiEngineering />
-
         <CurrentlyExploring items={beyond.currentlyExploring} />
+
+        <ApiEngineering />
 
         <BeyondSoftware data={beyond.personalNote} />
 

@@ -40,7 +40,7 @@ export default function BeyondSoftware({
       {/* Decorative typography */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-16 left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-[18vw] font-black uppercase leading-none tracking-[-0.08em] text-white/2.5"
+        className="pointer-events-none absolute -bottom-16 left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-[18vw] font-black uppercase leading-none tracking-[-0.08em] text-[#f861004f]"
       >
         CURIOSITY
       </div>

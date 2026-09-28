@@ -12,10 +12,7 @@ export default function BeyondTransition() {
         firstContent={
           <div className="flex h-full w-full items-center justify-center bg-[#11100F] px-6">
             <div className="text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-orange-500">
-                08 / Explore
-              </p>
-
+              
               <h3 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
                 Beyond the Code
               </h3>
@@ -53,7 +50,7 @@ export default function BeyondTransition() {
         pattern="random"
         randomness={0.15}
         fade
-        trigger="hover"
+        trigger="click"
         onComplete={(active) => {
           if (active) {
             router.push("/beyond");
