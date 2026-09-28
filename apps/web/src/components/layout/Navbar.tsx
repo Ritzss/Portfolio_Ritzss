@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import RubberSegment from "../ui/RubberSegment";
 import LineSidebar from "../ui/LineSidebar";
-import { usePathname } from "next/navigation";
 
 const homeLinks = [
   { label: "About", href: "#about" },
@@ -18,16 +17,20 @@ const homeLinks = [
 const beyondLinks = [
   { label: "Certifications", href: "#certifications" },
   { label: "Interests", href: "#interests" },
-  { label: "API", href: "#api" },
   { label: "Exploring", href: "#exploring" },
+  { label: "API", href: "#api" },
   { label: "Beyond", href: "#beyond-software" },
 ];
 
-export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+interface NavbarProps {
+  showBeyond: boolean;
+  onBack: () => void;
+}
 
-  const links = pathname === "/beyond" ? beyondLinks : homeLinks;
+export default function Navbar({ showBeyond, onBack }: NavbarProps) {
+  const [open, setOpen] = useState(false);
+
+  const links = showBeyond ? beyondLinks : homeLinks;
 
   const sidebarItems = links.map((link) => link.label);
 
@@ -69,12 +72,15 @@ export default function Navbar() {
           onClick={() => setOpen(false)}
           className="group relative z-60 flex items-center gap-3"
         >
-          <span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl border border-orange-500/30 bg-orange-500/5 text-[10px] font-bold tracking-tight text-orange-400 transition-all duration-300 group-hover:border-orange-500/70 group-hover:bg-orange-500/10">
+          <span
+            onClick={onBack}
+            className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl border border-orange-500/30 bg-orange-500/5 text-[10px] font-bold tracking-tight text-orange-400 transition-all duration-300 group-hover:border-orange-500/70 group-hover:bg-orange-500/10"
+          >
             RB
             <span className="absolute bottom-0 left-0 h-px w-full bg-orange-500/70 transition-transform duration-500 group-hover:translate-x-full" />
           </span>
 
-          <span className="hidden sm:block">
+          <span onClick={onBack} className="hidden sm:block">
             <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-200">
               Ritanshu Babuta
             </span>

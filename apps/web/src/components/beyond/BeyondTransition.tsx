@@ -1,18 +1,18 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import PixelSwap from "../ui/PixelSwap";
 
-export default function BeyondTransition() {
-  const router = useRouter();
+interface BeyondTransitionProps {
+  onComplete: () => void;
+}
 
+export default function BeyondTransition({ onComplete }: BeyondTransitionProps) {
   return (
-    <div className="mx-auto w-full max-w-5xl">
+    <div className="mx-auto w-full">
       <PixelSwap
         firstContent={
           <div className="flex h-full w-full items-center justify-center bg-[#11100F] px-6">
             <div className="text-center">
-              
               <h3 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
                 Beyond the Code
               </h3>
@@ -53,7 +53,7 @@ export default function BeyondTransition() {
         trigger="click"
         onComplete={(active) => {
           if (active) {
-            router.push("/beyond");
+            onComplete();
           }
         }}
       />

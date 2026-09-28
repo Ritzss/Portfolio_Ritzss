@@ -82,7 +82,7 @@ export default function CodeCapabilityCard({
         </div>
       </article>
 
-      <style jsx>{`
+      <style>{`
         .code-scroll::-webkit-scrollbar {
           width: 4px;
           height: 4px;

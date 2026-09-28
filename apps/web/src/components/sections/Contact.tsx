@@ -58,7 +58,7 @@ export default function Contact() {
           }}
         >
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-orange-500">
-            08 / Contact
+            07 / Contact
           </p>
 
           <h2 className="mt-6 max-w-5xl text-5xl font-semibold leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-8xl">
