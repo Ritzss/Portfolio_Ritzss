@@ -9,6 +9,7 @@ import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 import Intro from "@/components/layout/Intro";
 import VisualLog from "@/components/sections/VisualLog";
+import Beyond from "@/components/sections/Beyond";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <VisualLog />
         <Experience />
         <Education />
+        <Beyond />
         <Contact />
       </main>
 

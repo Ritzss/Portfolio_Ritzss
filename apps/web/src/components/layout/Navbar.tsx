@@ -4,8 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 import RubberSegment from "../ui/RubberSegment";
 import LineSidebar from "../ui/LineSidebar";
+import { usePathname } from "next/navigation";
 
-const links = [
+const homeLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
@@ -14,15 +15,25 @@ const links = [
   { label: "Contact", href: "#contact" },
 ];
 
-const sidebarItems = links.map((link) => link.label);
-
-const rubberItems = links.map((link) => ({
-  value: link.href,
-  label: link.label,
-}));
+const beyondLinks = [
+  { label: "Certifications", href: "#certifications" },
+  { label: "Interests", href: "#interests" },
+  { label: "Exploring", href: "#exploring" },
+  { label: "Beyond", href: "#beyond-software" },
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const links = pathname === "/beyond" ? beyondLinks : homeLinks;
+
+  const sidebarItems = links.map((link) => link.label);
+
+  const rubberItems = links.map((link) => ({
+    value: link.href,
+    label: link.label,
+  }));
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -59,7 +70,6 @@ export default function Navbar() {
         >
           <span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl border border-orange-500/30 bg-orange-500/5 text-[10px] font-bold tracking-tight text-orange-400 transition-all duration-300 group-hover:border-orange-500/70 group-hover:bg-orange-500/10">
             RB
-
             <span className="absolute bottom-0 left-0 h-px w-full bg-orange-500/70 transition-transform duration-500 group-hover:translate-x-full" />
           </span>
 
@@ -113,7 +123,7 @@ export default function Navbar() {
           </div>
 
           <Link
-            href="#contact"
+            href="/#contact"
             className="group flex items-center gap-2 rounded-xl border border-orange-500/30 bg-orange-500/5 px-3.5 py-2 text-[9px] font-medium uppercase tracking-[0.18em] text-orange-300 transition-all duration-300 hover:border-orange-400/70 hover:bg-orange-500/10 hover:text-orange-200"
           >
             <span>Let&apos;s Talk</span>

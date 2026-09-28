@@ -98,3 +98,42 @@ export interface Feedback {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface InterestMedia {
+  title: string;
+  type: "movie" | "series";
+  tmdbId: number;
+  image: string;
+}
+
+export interface BeyondInterest {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  media?: InterestMedia[];
+}
+
+export interface ExploringItem {
+  id: string;
+  title: string;
+  description: string;
+  focus: string[];
+}
+
+export interface BeyondData {
+  intro: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
+
+  interests: BeyondInterest[];
+
+  currentlyExploring: ExploringItem[];
+
+  personalNote: {
+    eyebrow: string;
+    title: string;
+  };
+}

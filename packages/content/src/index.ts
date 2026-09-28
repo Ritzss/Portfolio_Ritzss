@@ -8,6 +8,7 @@ import type {
   About,
   SkillGroup,
   Capability,
+  BeyondData,
   Contact,
 } from "@portfolio/types";
 
@@ -247,4 +248,175 @@ export const contact: Contact = {
   heading: "Let's build something worth building.",
   description:
     "Whether it's a product, a web application, or a problem that needs solving, I'm always interested in working on meaningful software.",
+};
+
+export const beyond: BeyondData = {
+  intro: {
+    eyebrow: "08 / Beyond the Code",
+    title: "More than just software.",
+    description:
+      "A closer look at the things I enjoy, the things I am curious about, and the interests that exist outside of building software.",
+  },
+
+  interests: [
+    {
+      id: "badminton",
+      number: "01",
+      title: "Badminton",
+      description:
+        "A sport I enjoy for the competition, movement, and the simple excuse to get away from a screen for a while.",
+    },
+
+    {
+      id: "swimming",
+      number: "02",
+      title: "Swimming",
+      description:
+        "Something I enjoy for the combination of exercise, focus, and switching off from everything else for a while.",
+    },
+
+    {
+      id: "space",
+      number: "03",
+      title: "Space",
+      description:
+        "I have always been fascinated by space, astronomy, planets, stars, and the sheer scale of the universe.",
+    },
+
+    {
+      id: "nature",
+      number: "04",
+      title: "Nature",
+      description:
+        "Wildlife, ecosystems, dinosaurs, and the natural world. There is a lot to be curious about outside the human-built world.",
+    },
+
+    {
+      id: "movies-series",
+      number: "05",
+      title: "Movies & Series",
+      description:
+        "A mix of action, adventure, science fiction, crime, comedy, documentaries, and some wonderfully ridiculous movies.",
+      media: [
+        {
+          title: "Transformers",
+          type: "movie",
+          tmdbId: 1858,
+          image:
+            "https://image.tmdb.org/t/p/w500/fg2EyGLnIRmiH4TieHu4MoH08Q0.jpg",
+        },
+        {
+          title: "Pirates of the Caribbean",
+          type: "movie",
+          tmdbId: 22,
+          image:
+            "https://image.tmdb.org/t/p/w500/z8onk7LV9Mmw6zKz4hT6pzzvmvl.jpg",
+        },
+        {
+          title: "The Wolverine",
+          type: "movie",
+          tmdbId: 76170,
+          image:
+            "https://image.tmdb.org/t/p/w500/8lzmovtARDXnE7kTDOum02i6fXv.jpg",
+        },
+        {
+          title: "Sharknado",
+          type: "movie",
+          tmdbId: 205774,
+          image:
+            "https://image.tmdb.org/t/p/w500/atEmHkVFTSGRYt2PeCiziQqbZnI.jpg",
+        },
+        {
+          title: "The Mentalist",
+          type: "series",
+          tmdbId: 5920,
+          image:
+            "https://image.tmdb.org/t/p/w500/eT0D3GkAnq0AjA9ok0KE1GfGQhA.jpg",
+        },
+        {
+          title: "Brooklyn Nine-Nine",
+          type: "series",
+          tmdbId: 48891,
+          image:
+            "https://image.tmdb.org/t/p/w500/hgRMSOt7a1b8qyQR68vUixJPang.jpg",
+        },
+        {
+          title: "The Rookie",
+          type: "series",
+          tmdbId: 79744,
+          image:
+            "https://image.tmdb.org/t/p/w500/bL1mwXDnH5fCxqc4S2n40hoVyoe.jpg",
+        },
+        {
+          title: "Our Planet",
+          type: "series",
+          tmdbId: 83880,
+          image:
+            "https://image.tmdb.org/t/p/w500/wRSnArnQBmeUYb5GWDU595bGsBr.jpg",
+        },
+        {
+          title: "The Dinosaurs",
+          type: "series",
+          tmdbId: 313298,
+          image:"https://image.tmdb.org/t/p/original/j64Q18ABQibT4rsy4Gpz2kU0hJY.jpg",
+        },
+      ],
+    },
+  ],
+
+  currentlyExploring: [
+    {
+      id: "advanced-typescript",
+      title: "Advanced TypeScript",
+      description:
+        "Going deeper into type-safe application architecture, reusable types, generics, utility types, and patterns that make larger codebases easier to maintain.",
+      focus: ["Generics", "Utility Types", "Type-safe APIs", "Architecture"],
+    },
+
+    {
+      id: "nextjs",
+      title: "Next.js",
+      description:
+        "Exploring deeper patterns around the App Router, server and client boundaries, rendering strategies, caching, performance, and production application architecture.",
+      focus: ["App Router", "Server Components", "Caching", "Performance"],
+    },
+
+    {
+      id: "react-native",
+      title: "React Native",
+      description:
+        "Learning how to take the component-driven approach I use on the web into mobile applications while understanding navigation, device capabilities, and platform-specific behaviour.",
+      focus: ["Expo", "Navigation", "Native APIs", "Mobile UI"],
+    },
+
+    {
+      id: "system-design",
+      title: "System Design",
+      description:
+        "Developing a better understanding of how applications scale beyond individual features, including architecture, data flow, caching, APIs, databases, and reliability.",
+      focus: ["Architecture", "Scalability", "Databases", "Caching"],
+    },
+
+    {
+      id: "devops",
+      title: "DevOps",
+      description:
+        "Learning more about the journey between writing code and reliably running it in production, including deployments, CI/CD, environments, monitoring, and cloud infrastructure.",
+      focus: ["CI/CD", "Deployment", "Monitoring", "Cloud"],
+    },
+
+    {
+      id: "ai-assisted-development",
+      title: "AI-assisted Development",
+      description:
+        "Exploring how AI tools can fit into real development workflows for research, debugging, prototyping, documentation, and improving development speed without replacing engineering judgement.",
+      focus: ["AI Tools", "Code Assistance", "Debugging", "Workflow"],
+    },
+  ],
+
+  personalNote: {
+    eyebrow: "06 / Beyond Software",
+    title:
+      "Building software is what I do. Curiosity is what keeps me doing it.",
+  },
 };
