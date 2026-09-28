@@ -8,6 +8,7 @@ import CurrentlyExploring from "@/components/beyond/CurrentlyExploring";
 import BeyondSoftware from "@/components/beyond/BeyondSoftware";
 import MaskedHeading from "@/components/ui/MaskedHeading";
 import Navbar from "@/components/layout/Navbar";
+import ApiEngineering from "@/components/beyond/ApiEngineering";
 
 export default function BeyondPage() {
   return (
@@ -59,9 +60,11 @@ export default function BeyondPage() {
 
         <Interests interests={beyond.interests} />
 
+        <ApiEngineering />
+
         <CurrentlyExploring items={beyond.currentlyExploring} />
 
-        <BeyondSoftware />
+        <BeyondSoftware data={beyond.personalNote} />
 
         {/* Footer */}
         <footer className="border-t border-white/10 px-6 py-10">

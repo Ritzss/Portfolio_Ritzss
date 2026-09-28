@@ -5,7 +5,7 @@
   --foreground: #f5f5f5;
   --muted: #a1a1aa;
   --border: #27272a;
-  --accent: #cd0000;
+  --accent: #ff5100;
 }
 
 * {
@@ -133,4 +133,44 @@ a {
 
 .animate-glitch-before {
   animation: glitch var(--before-duration) infinite linear reverse;
+}
+
+.api-card-fill {
+  position: absolute;
+  inset: 0;
+  background: #f97316;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+article[data-direction="left"] .api-card-fill {
+  clip-path: inset(0 100% 0 0);
+}
+
+article[data-direction="left"]:hover .api-card-fill {
+  clip-path: inset(0 0 0 0);
+}
+
+article[data-direction="right"] .api-card-fill {
+  clip-path: inset(0 0 0 100%);
+}
+
+article[data-direction="right"]:hover .api-card-fill {
+  clip-path: inset(0 0 0 0);
+}
+
+article[data-direction="top"] .api-card-fill {
+  clip-path: inset(0 0 100% 0);
+}
+
+article[data-direction="top"]:hover .api-card-fill {
+  clip-path: inset(0 0 0 0);
+}
+
+article[data-direction="bottom"] .api-card-fill {
+  clip-path: inset(100% 0 0 0);
+}
+
+article[data-direction="bottom"]:hover .api-card-fill {
+  clip-path: inset(0 0 0 0);
 }

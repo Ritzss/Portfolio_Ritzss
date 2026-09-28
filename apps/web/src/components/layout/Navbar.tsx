@@ -18,6 +18,7 @@ const homeLinks = [
 const beyondLinks = [
   { label: "Certifications", href: "#certifications" },
   { label: "Interests", href: "#interests" },
+  { label: "API", href: "#api" },
   { label: "Exploring", href: "#exploring" },
   { label: "Beyond", href: "#beyond-software" },
 ];
@@ -64,7 +65,7 @@ export default function Navbar() {
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between rounded-2xl border border-white/10 bg-[#070707]/75 px-3 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:px-4">
         {/* Identity */}
         <Link
-          href="#home"
+          href="/#home"
           onClick={() => setOpen(false)}
           className="group relative z-60 flex items-center gap-3"
         >

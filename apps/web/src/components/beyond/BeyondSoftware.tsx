@@ -1,51 +1,48 @@
-export default function BeyondSoftware() {
+import type { BeyondData } from "@portfolio/types";
+
+interface BeyondSoftwareProps {
+  data: BeyondData["personalNote"];
+}
+
+export default function BeyondSoftware({
+  data,
+}: BeyondSoftwareProps) {
   return (
-    <section id="beyond-software" className="border-t border-white/10 px-6 py-24">
+    <section
+      id="beyond-software"
+      className="relative overflow-hidden border-t border-white/10 px-6 py-28 sm:py-40"
+    >
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 sm:grid-cols-[120px_1fr]">
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-orange-500">
-            04
-          </p>
+          {/* Section number */}
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-orange-500">
+              {data.eyebrow}
+            </p>
+          </div>
 
-          <div className="max-w-4xl">
-            <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-zinc-700">
-              Beyond Software
+          {/* Main content */}
+          <div>
+            <p className="max-w-5xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
+              {data.title}
             </p>
 
-            <h2 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Building software is what I do.
-              <br />
-              <span className="text-zinc-600">
-                Curiosity is what keeps me doing it.
-              </span>
-            </h2>
+            <div className="mt-12 h-px w-full bg-white/10" />
 
-            <div className="mt-10 grid gap-8 border-t border-white/10 pt-8 sm:grid-cols-2">
-              <p className="text-sm leading-7 text-zinc-500">
-                Software is only one part of what interests me. I like
-                understanding how things work, exploring unfamiliar subjects,
-                watching documentaries, following stories, and occasionally
-                doing something that does not involve staring at a code editor.
-              </p>
-
-              <p className="text-sm leading-7 text-zinc-500">
-                The things outside development often end up influencing how I
-                approach development itself: staying curious, experimenting,
-                breaking things, figuring out why they broke, and trying again.
-              </p>
+            <div className="mt-8 flex flex-col gap-4 text-xs uppercase tracking-[0.2em] text-zinc-600 sm:flex-row sm:items-center sm:justify-between">
+              <span>Beyond the code</span>
+              <span>Still learning. Still building.</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-20 flex items-center justify-between border-t border-white/10 pt-6">
-          <span className="font-mono text-[8px] uppercase tracking-[0.3em] text-zinc-700">
-            Beyond the Code
-          </span>
-
-          <span className="font-mono text-[8px] uppercase tracking-[0.3em] text-zinc-700">
-            Ritanshu Babuta · 2026
-          </span>
-        </div>
+      {/* Decorative typography */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-16 left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-[18vw] font-black uppercase leading-none tracking-[-0.08em] text-white/2.5"
+      >
+        CURIOSITY
       </div>
     </section>
   );

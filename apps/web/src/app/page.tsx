@@ -18,7 +18,7 @@ export default function Home() {
 
       <Navbar />
 
-      <main>
+      <main id="#home">
         <Hero />
         <About />
         <Skills />
