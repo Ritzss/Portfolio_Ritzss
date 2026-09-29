@@ -137,3 +137,14 @@ export interface BeyondData {
     title: string;
   };
 }
+
+export interface AdminMessage {
+  id: string;
+  name: string;
+  email: string;
+  subject?: string;
+  message: string;
+  status: "unread" | "read" | "replied";
+  createdAt: string;
+  updatedAt: string;
+}
