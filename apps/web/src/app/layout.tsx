@@ -4,6 +4,8 @@ import NetworkStatus from "@/components/errors/NetworkStatus";
 import PortfolioCursor from "@/components/ui/PortfolioCursor";
 import SiteBackground from "@/components/ui/SiteBackground";
 import { Analytics } from "@vercel/analytics/next";
+import PrivacyConsent from "@/components/feedback/PrivacyConsent";
+import AFKCharacter from "@/components/AKF/AFKCharacter";
 
 export const metadata: Metadata = {
   title: "Ritanshu Babuta",
@@ -27,8 +29,10 @@ export default function RootLayout({
         <SiteBackground />
         <PortfolioCursor />
         <NetworkStatus />
+        <AFKCharacter timeout={5000} />
         {children}
         <Analytics />
+        <PrivacyConsent />
       </body>
     </html>
   );

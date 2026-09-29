@@ -1,14 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import MagicBento from "@/components/ui/MagicBento";
+import DashboardCard from "@/components/admin/DashboardCard";
+import { FiCheckCircle, FiMail, FiMessageSquare, FiUser } from "react-icons/fi";
 
-type FeedbackType =
-  | "feedback"
-  | "project"
-  | "job"
-  | "collaboration"
-  | "other";
+type FeedbackType = "feedback" | "project" | "job" | "collaboration" | "other";
 
 interface DashboardStats {
   total: number;
@@ -58,8 +54,9 @@ export default function AdminDashboard() {
     resolved: 0,
   });
 
-  const [latestFeedback, setLatestFeedback] =
-    useState<LatestFeedback | null>(null);
+  const [latestFeedback, setLatestFeedback] = useState<LatestFeedback | null>(
+    null,
+  );
 
   const [loading, setLoading] = useState(true);
 
@@ -88,36 +85,6 @@ export default function AdminDashboard() {
     loadDashboard();
   }, []);
 
-  const cards = [
-    {
-      label: "01 / Messages",
-      title: loading ? "—" : String(stats.total).padStart(2, "0"),
-      description:
-        "Total feedback, enquiries, opportunities, and collaboration requests.",
-      color: "#100D0B",
-    },
-    {
-      label: "02 / New",
-      title: loading ? "—" : String(stats.new).padStart(2, "0"),
-      description: "Messages that have not been reviewed yet.",
-      color: "#0B1014",
-    },
-    {
-      label: "03 / Resolved",
-      title: loading ? "—" : String(stats.resolved).padStart(2, "0"),
-      description: "Messages that have been handled and resolved.",
-      color: "#0B120F",
-    },
-    {
-      label: "04 / Latest Contact",
-      title: loading ? "—" : latestFeedback?.name || "None",
-      description: latestFeedback
-        ? formatType(latestFeedback.type)
-        : "No messages have been received yet.",
-      color: "#100C14",
-    },
-  ];
-
   return (
     <div className="mx-auto max-w-7xl">
       <div>
@@ -134,20 +101,41 @@ export default function AdminDashboard() {
         </p>
       </div>
 
-      <div className="mt-10">
-        <MagicBento
-          cards={cards}
-          textAutoHide={false}
-          enableStars
-          enableSpotlight
-          enableBorderGlow
-          disableAnimations={false}
-          spotlightRadius={260}
-          particleCount={6}
-          enableTilt={false}
-          glowColor="249, 115, 22"
-          clickEffect={false}
-          enableMagnetism={false}
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <DashboardCard
+          number="01"
+          label="Messages"
+          value={loading ? "—" : String(stats.total).padStart(2, "0")}
+          description="Total feedback, enquiries, opportunities, and collaboration requests."
+          icon={<FiMessageSquare size={16} />}
+        />
+
+        <DashboardCard
+          number="02"
+          label="New"
+          value={loading ? "—" : String(stats.new).padStart(2, "0")}
+          description="Messages that have not been reviewed yet."
+          icon={<FiMail size={16} />}
+        />
+
+        <DashboardCard
+          number="03"
+          label="Resolved"
+          value={loading ? "—" : String(stats.resolved).padStart(2, "0")}
+          description="Messages that have been handled and resolved."
+          icon={<FiCheckCircle size={16} />}
+        />
+
+        <DashboardCard
+          number="04"
+          label="Latest Contact"
+          value={loading ? "—" : latestFeedback?.name || "None"}
+          description={
+            latestFeedback
+              ? formatType(latestFeedback.type)
+              : "No messages have been received yet."
+          }
+          icon={<FiUser size={16} />}
         />
       </div>
 
