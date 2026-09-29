@@ -9,6 +9,10 @@
       "outputs": [".next/**", "dist/**"],
       "env": [
         "MONGODB_URI",
+        "ADMIN_SESSION_SECRET",
+        "ADMIN_USERNAME",
+        "ADMIN_PASSWORD",
+        "ADMIN_SETUP_SECRET",
         "FEEDBACK_RATE_LIMIT_SECRET"
       ]
     },
