@@ -4,6 +4,7 @@ import NetworkStatus from "@/components/errors/NetworkStatus";
 import PortfolioCursor from "@/components/ui/PortfolioCursor";
 import SiteBackground from "@/components/ui/SiteBackground";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import PrivacyConsent from "@/components/feedback/PrivacyConsent";
 import AFKCharacter from "@/components/AKF/AFKCharacter";
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         <NetworkStatus />
         <AFKCharacter timeout={5000} />
         {children}
+        <SpeedInsights />
         <Analytics />
         <PrivacyConsent />
       </body>
