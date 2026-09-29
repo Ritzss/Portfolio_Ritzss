@@ -79,7 +79,7 @@ export default function AdminSidebar({
         <button type="button" aria-label="Close navigation" onClick={onClose} className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm lg:hidden" />
       )}
 
-      <aside className={`fixed inset-y-0 left-0 z-50 flex w-72 flex-col border-r border-white/10 bg-[#080808] transition-transform duration-300 lg:translate-x-0 ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
+      <aside className={`fixed inset-y-0 left-0 z-50 flex w-72 flex-col border-r border-white/10 bg-[#080808b0] transition-transform duration-300 lg:translate-x-0 ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}>
         <div className="flex h-20 shrink-0 items-center justify-between border-b border-white/10 px-6">
           <Link href="/admin" onClick={onClose}>
             <p className="font-mono text-[9px] uppercase tracking-[0.35em] text-orange-500">
