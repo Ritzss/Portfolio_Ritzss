@@ -23,6 +23,7 @@ export const profile: Profile = {
 export const projects: Project[] = [
   {
     title: "VastraDrobe",
+    subTitle:"Fashion Ecommerce",
     description:
       "Built and maintained production web applications using Next.js, React, Node.js, and MongoDB. Developed the VastraDrobe e-commerce platform across product discovery, variants, cart, accounts, and checkout workflows. Built internal inventory and business workflows covering products, warehouses, stock movements, orders, users, and administration. Designed REST APIs, authentication flows, database operations, and production integrations.",
     technologies: [
@@ -45,6 +46,7 @@ export const projects: Project[] = [
   },
   {
   title: "NexLocal",
+  subTitle:"Local Grocery Shop",
   description:
     "Built and deployed a full-stack grocery e-commerce platform using React, TypeScript, Vite, and Tailwind CSS. Developed customer shopping workflows across product browsing, search, cart, checkout, authentication, order history, delivery tracking, and location-based store discovery. Integrated interactive maps and payment functionality, along with separate admin and dealer dashboard workflows.",
   technologies: [
@@ -67,6 +69,7 @@ export const projects: Project[] = [
   url: "https://rksgrocery.netlify.app/",
   image: "/projects/NexLocal.webp",
   featured: true,
+  github:"https://github.com/Ritzss/RKSGrocery2.0",
 },
 ];
 

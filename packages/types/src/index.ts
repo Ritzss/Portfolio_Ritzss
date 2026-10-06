@@ -14,6 +14,7 @@ export interface Project {
   github?: string;
   image?: string;
   featured?: boolean;
+  subTitle?:string;
 }
 
 export interface Experience {

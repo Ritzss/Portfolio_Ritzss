@@ -144,7 +144,7 @@ export default function Projects() {
                   >
                     <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-black/80 via-black/10 to-transparent p-8 sm:p-10">
                       <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-orange-400">
-                        VastraDrobe / Fashion Commerce
+                        {project.title} / {project.subTitle}
                       </p>
 
                       <h3 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
