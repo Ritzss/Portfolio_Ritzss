@@ -43,6 +43,31 @@ export const projects: Project[] = [
     image: "/projects/vastradrobe.webp",
     featured: true,
   },
+  {
+  title: "NexLocal",
+  description:
+    "Built and deployed a full-stack grocery e-commerce platform using React, TypeScript, Vite, and Tailwind CSS. Developed customer shopping workflows across product browsing, search, cart, checkout, authentication, order history, delivery tracking, and location-based store discovery. Integrated interactive maps and payment functionality, along with separate admin and dealer dashboard workflows.",
+  technologies: [
+    "React",
+    "TypeScript",
+    "Vite",
+    "Tailwind CSS",
+    "React Router",
+    "Leaflet",
+    "Stripe",
+  ],
+  highlights: [
+    "Built product browsing, search, filtering, cart, and checkout workflows",
+    "Implemented authentication, profiles, order history, and delivery tracking",
+    "Integrated location detection and interactive store discovery maps",
+    "Integrated Stripe payment functionality",
+    "Built admin and dealer dashboard workflows",
+    "Designed responsive customer and mobile shopping experiences",
+  ],
+  url: "https://rksgrocery.netlify.app/",
+  image: "/projects/NexLocal.webp",
+  featured: true,
+},
 ];
 
 export const experience: Experience[] = [
