@@ -216,6 +216,16 @@ export default function Projects() {
                           View live project ↗
                         </Link>
                       ) : null}
+                      {project.github ? (
+                        <Link
+                          href={project.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="cursor-target mt-8 inline-flex rounded-full border border-orange-500/40 px-5 py-3 text-xs uppercase tracking-[0.2em] text-orange-400 transition-colors hover:border-orange-500 hover:bg-orange-500/10 hover:text-orange-300"
+                        >
+                          View Github Repository ↗
+                        </Link>
+                      ) : null}
                     </div>
                   </div>
                 </div>
