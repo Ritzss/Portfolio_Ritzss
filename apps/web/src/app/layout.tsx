@@ -32,7 +32,7 @@ export default function RootLayout({
         <SiteBackground />
         <PortfolioCursor />
         <NetworkStatus />
-        <AFKCharacter timeout={6000} />
+        <AFKCharacter timeout={60000} />
         {children}
         <SpeedInsights />
         <Analytics />
