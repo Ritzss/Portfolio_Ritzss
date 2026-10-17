@@ -312,7 +312,7 @@ export function PortfolioRadioPlayer() {
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(249,115,22,0.22),transparent_65%)]" />
         <div className="radio-ambient-glow absolute inset-x-0 bottom-0 h-2/3 opacity-80" />
-        <div className="radio-background-wave absolute inset-x-0 bottom-8 flex h-32 items-end justify-center gap-[3px] px-3 sm:gap-1">
+        <div className="radio-background-wave absolute inset-x-0 bottom-8 flex h-32 items-end justify-center gap-0.75 px-3 sm:gap-1">
           {Array.from({ length: 64 }, (_, i) => {
             const height =
               8 +
@@ -334,7 +334,7 @@ export function PortfolioRadioPlayer() {
           })}
         </div>
         <div className="radio-particles absolute inset-x-0 bottom-0 h-1/2" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/35 to-[#080808]/75" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#080808] via-[#080808]/35 to-[#080808]/75" />
       </div>
 
       {/* Track information */}
@@ -368,7 +368,7 @@ export function PortfolioRadioPlayer() {
             type="button"
             onClick={togglePlayback}
             aria-label={isPlaying ? "Pause soundtrack" : "Play soundtrack"}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-orange-500 text-black transition hover:bg-orange-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-400"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-orange-500 text-black transition hover:bg-orange-300 focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-orange-400"
           >
             {isPlaying ? <FiPause size={17} /> : <FiPlay size={17} />}
           </button>

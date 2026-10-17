@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body cz-shortcut-listen="true">
         <PortfolioRadioProvider>
-        {/* <SiteBackground /> */}
+        <SiteBackground />
         <PortfolioCursor />
         <NetworkStatus />
         <AFKCharacter timeout={6000} />

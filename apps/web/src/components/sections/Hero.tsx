@@ -175,35 +175,47 @@ export default function Hero() {
       <div className="mt-15 relative z-20 mx-auto flex min-h-[calc(100vh-90px)] max-w-350 items-center justify-center">
         <div className="relative w-full text-center">
           {/* Role */}
-          <p className="mb-5 text-[10px] uppercase tracking-[0.5em] text-zinc-600 sm:text-xs">
+          <p className="mb-4 text-[10px] uppercase tracking-[0.25em] text-zinc-600 sm:mb-5 sm:text-xs sm:tracking-[0.5em]">
             {profile.role}
           </p>
 
-          <SplitFlapText
-            words={["Ritanshu Babuta", "Full-Stack Developer"]}
-            flipDuration={0.2}
-            stagger={0.045}
-            cycleDelay={4400}
-            charset="alphanumeric"
-            flipsPerChar={4}
-            order="center"
-            align="center"
-            tileStyle="minimal"
-            tileColor="#111827"
-            textColor="#f97316"
-            glare={0}
-            depth={0.6}
-            tileRadius={8}
-            gap={1}
-            fontSize={64}
-            loop
-            padTo={13}
-            intro
-          />
+          {/* Responsive Split Flap */}
+          <div className="w-full min-w-0 max-w-full overflow-hidden px-1">
+            <div className="flex w-full min-w-0 justify-center">
+              <div
+                className=" max-w-full origin-center [&_.split-flap-text]:inline-flex! [&_.split-flap-text]:max-w-full! [&_.split-flap-text]:whitespace-pre! [&_.split-flap-text]:gap-0.5! [&_.split-flap-text__tile]:w-[0.68em]!"
+                style={{
+                  fontSize: "clamp(12px, 5.5vw, 64px)",
+                }}
+              >
+                <SplitFlapText
+                  words={["Ritanshu Babuta", "Full-Stack Developer"]}
+                  flipDuration={0.2}
+                  stagger={0.045}
+                  cycleDelay={4400}
+                  charset="alphanumeric"
+                  flipsPerChar={4}
+                  order="center"
+                  align="center"
+                  tileStyle="minimal"
+                  tileColor="#111827"
+                  textColor="#f97316"
+                  glare={0}
+                  depth={0.6}
+                  tileRadius={5}
+                  gap={1}
+                  fontSize="clamp(24px, 5vw, 64px)"
+                  padTo={15}
+                  loop
+                  intro
+                />
+              </div>
+            </div>
+          </div>
 
           {/* Description */}
-          <div className="relative z-30 mt-10">
-            <p className="mx-auto max-w-xl text-sm leading-7 text-zinc-500 sm:text-base">
+          <div className="relative z-30 mt-6 w-full px-4 sm:mt-10 sm:px-0">
+            <p className="mx-auto max-w-xl text-center text-sm leading-6 text-zinc-500 sm:text-base sm:leading-7">
               {profile.tagline}. Building digital experiences, e-commerce
               platforms, and business systems that actually have to work.
             </p>

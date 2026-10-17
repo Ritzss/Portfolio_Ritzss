@@ -27,9 +27,7 @@ export default function Intro() {
   return (
     <div
       className={`fixed inset-0 z-100 flex items-center justify-center bg-[#050505] transition-opacity duration-600 ${
-        exit
-          ? "pointer-events-none opacity-0"
-          : "opacity-100"
+        exit ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
     >
       <div
@@ -47,6 +45,8 @@ export default function Intro() {
           words={["INITIALIZING", "RITANSHU BABUTA"]}
           loop={false}
           cycleDelay={500}
+          order="center"
+          align="center"
           flipsPerChar={6}
           flipDuration={0.1}
           stagger={0.07}
