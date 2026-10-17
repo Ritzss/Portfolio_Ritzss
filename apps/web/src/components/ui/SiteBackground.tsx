@@ -8,7 +8,7 @@ export default function SiteBackground() {
      <WebThreads
     colors={["#e66e00","#fe4b00"]}
     coreColor="#FFFFFF"        
-    threadCount={18}            
+    threadCount={7}            
     spread={0.2}
     lightMode={false}
     speed={0.15}
