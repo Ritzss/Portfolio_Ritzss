@@ -5,29 +5,36 @@ import WebThreads from "./WebThreads";
 export default function SiteBackground() {
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
-      <WebThreads
-        color1="#fe4b00"
-        color2="#e66e00"
-        color3="#FFFFFF"
-        speed={0.12}
-        threadCount={6}
-        frequency={5}
-        spread={0.18}
-        taper={1}
-        position={0.5}
-        fanMode="center"
-        glow={0.02}
-        falloff={0.6}
-        thickness={1.1}
-        brightness={0.45}
-        opacity={0.65}
-        mirror
-        shimmer={false}
-        grain
-        grainIntensity={0.035}
-        mouseInteraction
-        mouseStrength={0.2}
-      />
+     <WebThreads
+    colors={["#e66e00","#fe4b00"]}
+    coreColor="#FFFFFF"        
+    threadCount={18}            
+    spread={0.2}
+    lightMode={false}
+    speed={0.15}
+    frequency={5}
+    taper={0.15}
+    position={0.5}
+    pinch={0.5}
+    nodes={1}
+    angle={0}
+    glow={0.012}
+    falloff={0.7}
+    thickness={1.1}
+    brightness={0.6}
+    opacity={1}
+    depth={0}
+    pulses={0.9}
+    mirror
+    shimmer={false}
+    fade={0}
+    grain={0.05}
+    intro
+    mouseInteraction
+    mouseStrength={0.5}
+    pulseOnClick
+    paused={false}
+/>
     </div>
   );
 }

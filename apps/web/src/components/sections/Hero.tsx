@@ -13,7 +13,7 @@ import {
   SiHtml5,
   SiCss,
 } from "react-icons/si";
-import TechText from "../ui/TechText";
+import SplitFlapText from "../ui/SplitFlapText";
 
 const floatingItems = [
   {
@@ -179,39 +179,30 @@ export default function Hero() {
             {profile.role}
           </p>
 
-          <div className="relative w-full overflow-visible">
-            <TechText
-              text="PORTFOLIO"
-              fontWeight={900}
-              fontSize={220}
-              reveal="letter"
-              dashLength={4}
-              dashGap={2}
-              specks={12}
-              fontFamily=""
-              color="#F97316"
-              accentColor="#ffffff"
-              letterSpacing={-0.075}
-              reach={180}
-              softness={0.7}
-              strokeWidth={1.5}
-              speed={0.8}
-              lineStyle="dashed"
-              selection
-              labels
-              draggable
-              sweep
-              style={{ height: "279px" }}
-            />
-
-            <div className="pointer-events-none absolute bottom-[-4vw] left-1/2 z-20 w-full -translate-x-1/2 -rotate-3 font-['Brush_Script_MT','Segoe_Script','cursive'] text-[13vw] leading-none tracking-[-0.04em] text-[#F5F0E8] drop-shadow-[0_10px_30px_rgba(194,65,12,0.2)] sm:text-[11vw] md:text-[9vw] lg:text-[8vw]">
-              Ritanshu Babuta
-              <div className="mx-auto mt-1 h-0.75 w-[58%] -rotate-2 rounded-full bg-[#F5F0E8] sm:h-1" />
-            </div>
-          </div>
+          <SplitFlapText
+            words={["Ritanshu Babuta", "Full-Stack Developer"]}
+            flipDuration={0.2}
+            stagger={0.045}
+            cycleDelay={4400}
+            charset="alphanumeric"
+            flipsPerChar={4}
+            order="center"
+            align="center"
+            tileStyle="minimal"
+            tileColor="#111827"
+            textColor="#f97316"
+            glare={0}
+            depth={0.6}
+            tileRadius={8}
+            gap={1}
+            fontSize={64}
+            loop
+            padTo={13}
+            intro
+          />
 
           {/* Description */}
-          <div className="relative z-30 mt-27">
+          <div className="relative z-30 mt-10">
             <p className="mx-auto max-w-xl text-sm leading-7 text-zinc-500 sm:text-base">
               {profile.tagline}. Building digital experiences, e-commerce
               platforms, and business systems that actually have to work.

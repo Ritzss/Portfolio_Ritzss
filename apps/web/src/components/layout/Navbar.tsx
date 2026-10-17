@@ -1,9 +1,18 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
 import Link from "next/link";
 import { useState } from "react";
 import RubberSegment from "../ui/RubberSegment";
 import LineSidebar from "../ui/LineSidebar";
+import { usePortfolioRadio } from "../music/PortfolioRadio";
+import {
+  FiPause,
+  FiPlay,
+  FiVolume2,
+  FiVolumeX,
+  FiSkipForward,
+} from "react-icons/fi";
 
 const homeLinks = [
   { label: "About", href: "#about" },
@@ -116,25 +125,72 @@ export default function Navbar({ showBeyond, onBack }: NavbarProps) {
           </div>
         </div>
 
-        {/* Desktop status */}
-        <div className="hidden items-center gap-4 md:flex">
-          <div className="flex items-center gap-2 border-r border-white/10 pr-4">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-500 opacity-50" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500" />
-            </span>
+        {/* Desktop audio controls */}
+        <div className="hidden items-center gap-3 md:flex">
+          {(() => {
+            const radio = usePortfolioRadio();
 
-            <span className="font-mono text-[8px] uppercase tracking-[0.22em] text-zinc-500">
-              Available
-            </span>
-          </div>
+            return (
+              <>
+                <div className="flex items-center gap-2 border-r border-white/10 pr-3">
+                  <span className="flex h-2 w-2 items-center justify-center">
+                    <span
+                      className={`h-2 w-2 rounded-full ${radio.isPlaying ? "animate-pulse bg-orange-500" : "bg-zinc-600"}`}
+                    />
+                  </span>
+                  <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-zinc-500">
+                    {radio.isPlaying ? "Now Playing" : "Radio Off"}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={radio.togglePlayback}
+                    aria-label={radio.isPlaying ? "Pause music" : "Play music"}
+                    title={radio.isPlaying ? "Pause" : "Play"}
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-orange-500/25 bg-orange-500/5 text-orange-300 transition hover:border-orange-400/60 hover:bg-orange-500/10 hover:text-orange-200"
+                  >
+                    {radio.isPlaying ? (
+                      <FiPause size={14} />
+                    ) : (
+                      <FiPlay size={14} />
+                    )}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={radio.nextTrack}
+                    aria-label="Next track"
+                    title="Next track"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/3 text-zinc-400 transition hover:border-orange-500/40 hover:text-orange-300"
+                  >
+                    <FiSkipForward size={14} />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={radio.toggleMute}
+                    aria-label={radio.isMuted ? "Unmute music" : "Mute music"}
+                    title={radio.isMuted ? "Unmute" : "Mute"}
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/3 text-zinc-400 transition hover:border-orange-500/40 hover:text-orange-300"
+                  >
+                    {radio.isMuted ? (
+                      <FiVolumeX size={14} />
+                    ) : (
+                      <FiVolume2 size={14} />
+                    )}
+                  </button>
+                </div>
+              </>
+            );
+          })()}
 
           <Link
             href="/#contact"
             className="group flex items-center gap-2 rounded-xl border border-orange-500/30 bg-orange-500/5 px-3.5 py-2 text-[9px] font-medium uppercase tracking-[0.18em] text-orange-300 transition-all duration-300 hover:border-orange-400/70 hover:bg-orange-500/10 hover:text-orange-200"
           >
             <span>Let&apos;s Talk</span>
-
             <span className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
               ↗
             </span>

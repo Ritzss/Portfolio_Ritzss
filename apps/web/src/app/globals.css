@@ -174,3 +174,132 @@ article[data-direction="bottom"] .api-card-fill {
 article[data-direction="bottom"]:hover .api-card-fill {
   clip-path: inset(0 0 0 0);
 }
+
+
+.afk-character-dying {
+  animation: afk-character-death 1s ease-in forwards;
+  pointer-events: none;
+}
+
+@keyframes afk-character-death {
+  0% {
+    opacity: 1;
+    filter: grayscale(0);
+  }
+
+  35% {
+    opacity: 1;
+    filter: grayscale(1);
+  }
+
+  100% {
+    opacity: 0;
+    filter: grayscale(1) brightness(0.3);
+  }
+}
+
+/* music model */
+.radio-equalizer-bar {
+  display: block;
+  width: 3px;
+  height: 5px;
+  border-radius: 999px;
+  background: #f97316;
+  opacity: 0.65;
+  transform-origin: center;
+}
+
+.radio-equalizer.is-playing .radio-equalizer-bar {
+  animation: radio-wave 700ms ease-in-out infinite alternate;
+  animation-delay: calc(var(--bar-index) * 100ms);
+}
+
+@keyframes radio-wave {
+  from { height: 5px; opacity: 0.45; }
+  to { height: 26px; opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .radio-equalizer.is-playing .radio-equalizer-bar {
+    animation: none;
+    height: 10px;
+  }
+}
+
+@keyframes signature-draw {
+  from {
+    transform: scaleX(0) rotate(-2deg);
+  }
+  to {
+    transform: scaleX(1) rotate(-2deg);
+  }
+}
+
+.radio-ambient-glow {
+  background: linear-gradient(
+    0deg,
+    rgba(249, 115, 22, 0.2),
+    rgba(234, 88, 12, 0.06) 45%,
+    transparent
+  );
+  filter: blur(18px);
+}
+
+.radio-background-wave {
+  mask-image: linear-gradient(
+    to top,
+    transparent,
+    black 18%,
+    black 75%,
+    transparent
+  );
+}
+
+.radio-background-bar {
+  display: block;
+  flex: 1;
+  max-width: 5px;
+  min-width: 1px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(
+    to top,
+    rgba(194, 65, 12, 0.12),
+    rgba(249, 115, 22, 0.9) 55%,
+    rgba(255, 190, 100, 0.95)
+  );
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.35);
+  transform-origin: bottom;
+  animation: radio-background-wave 1.2s ease-in-out infinite alternate;
+}
+
+.radio-particles {
+  background-image:
+    radial-gradient(circle, rgba(255, 154, 59, 0.9) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(249, 115, 22, 0.65) 1px, transparent 1.5px);
+  background-size: 29px 23px, 41px 37px;
+  background-position: 0 0, 13px 11px;
+  mask-image: linear-gradient(to top, black, transparent 90%);
+  opacity: 0.35;
+}
+
+@keyframes radio-background-wave {
+  from {
+    transform: scaleY(0.45);
+    opacity: 0.55;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .radio-background-bar {
+    animation: none;
+    transform: none;
+  }
+
+  .radio-particles {
+    opacity: 0.2;
+  }
+}

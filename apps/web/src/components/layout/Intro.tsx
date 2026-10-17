@@ -10,11 +10,11 @@ export default function Intro() {
   useEffect(() => {
     const exitTimer = setTimeout(() => {
       setExit(true);
-    }, 2800);
+    }, 3800);
 
     const hideTimer = setTimeout(() => {
       setVisible(false);
-    }, 3000);
+    }, 4000);
 
     return () => {
       clearTimeout(exitTimer);

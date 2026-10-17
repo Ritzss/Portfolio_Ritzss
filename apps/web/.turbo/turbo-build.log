@@ -1,26 +1,37 @@
 $ next build
 ▲ Next.js 16.3.5 (Turbopack)
 - Environments: .env.local, .env.production
-✓ Running next.config.ts took 139ms
+✓ Running next.config.ts took 155ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 14.7s
+✓ Compiled successfully in 33.3s
   Running TypeScript ...
-  Finished TypeScript in 14.6s ...
+  Finished TypeScript in 19.2s ...
   Collecting page data using 3 workers ...
-  Generating static pages using 3 workers (0/6) ...
-  Generating static pages using 3 workers (1/6) 
-  Generating static pages using 3 workers (2/6) 
-  Generating static pages using 3 workers (4/6) 
-✓ Generating static pages using 3 workers (6/6) in 2.9s
+  Generating static pages using 3 workers (0/16) ...
+  Generating static pages using 3 workers (4/16) 
+  Generating static pages using 3 workers (8/16) 
+  Generating static pages using 3 workers (12/16) 
+✓ Generating static pages using 3 workers (16/16) in 1244ms
   Finalizing page optimization ...
 
 Route (app)
 ┌ ○ /
 ├ ○ /_not-found
+├ ƒ /admin
+├ ○ /admin/login
+├ ƒ /admin/messages
+├ ƒ /api/admin/auth/login
+├ ƒ /api/admin/auth/logout
+├ ƒ /api/admin/auth/me
+├ ƒ /api/admin/dashboard
+├ ƒ /api/admin/feedback
+├ ƒ /api/admin/feedback/[id]
 ├ ƒ /api/feedback
 ├ ○ /icon.svg
-└ ○ /manifest.webmanifest
+├ ○ /manifest.webmanifest
+├ ○ /robots.txt
+└ ○ /sitemap.xml
 
 
 ○  (Static)   prerendered as static content

@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import PrivacyConsent from "@/components/feedback/PrivacyConsent";
 import AFKCharacter from "@/components/AKF/AFKCharacter";
+import { PortfolioRadioProvider } from "@/components/music/PortfolioRadio";
 
 export const metadata: Metadata = {
   title: "Ritanshu Babuta",
@@ -27,14 +28,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body cz-shortcut-listen="true">
-        <SiteBackground />
+        <PortfolioRadioProvider>
+        {/* <SiteBackground /> */}
         <PortfolioCursor />
         <NetworkStatus />
-        <AFKCharacter timeout={60000} />
+        <AFKCharacter timeout={6000} />
         {children}
         <SpeedInsights />
         <Analytics />
         <PrivacyConsent />
+        </PortfolioRadioProvider>
       </body>
     </html>
   );

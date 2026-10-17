@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/purity */
 "use client";
@@ -36,8 +37,11 @@ export default function AFKCharacter({
   const [direction, setDirection] = useState<Direction>("right");
   const [state, setState] = useState<CharacterState>("idle");
   const [frame, setFrame] = useState(0);
+  const deathTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [dying, setDying] = useState(false);
 
   const activeRef = useRef(false);
+  const dyingRef = useRef(false);
   const positionRef = useRef(position);
   const targetRef = useRef<Position>(createTarget());
   const cursorRef = useRef<Position>({
@@ -56,6 +60,35 @@ export default function AFKCharacter({
   const confusedUntilRef = useRef(0);
   const wakeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const handleCharacterClick = (
+    event: React.SyntheticEvent,
+  ) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (dyingRef.current) return;
+
+    dyingRef.current = true;
+    setDying(true);
+    activeRef.current = false;
+
+    if (animationRef.current !== null) {
+      cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+    }
+
+    if (deathTimeoutRef.current !== null) {
+      clearTimeout(deathTimeoutRef.current);
+    }
+
+    deathTimeoutRef.current = setTimeout(() => {
+      setActive(false);
+      setDying(false);
+      dyingRef.current = false;
+      deathTimeoutRef.current = null;
+    }, 1000);
+  };
+
   /*
    * ---------------------------------------------------------
    * ACTIVITY / AFK DETECTION
@@ -65,6 +98,7 @@ export default function AFKCharacter({
   useEffect(() => {
     const handleActivity = (event: Event) => {
       lastActivityRef.current = Date.now();
+      if (dyingRef.current) return;
 
       if (event instanceof MouseEvent) {
         const cursorPosition = {
@@ -111,6 +145,7 @@ export default function AFKCharacter({
     const timer = window.setInterval(() => {
       if (
         !activeRef.current &&
+        !dyingRef.current &&
         Date.now() - lastActivityRef.current >= timeout
       ) {
         activeRef.current = true;
@@ -351,43 +386,42 @@ export default function AFKCharacter({
   }
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-190 overflow-hidden">
+    <div
+      className="fixed inset-0"
+      style={{ zIndex: 2147483647, pointerEvents: "none" }}
+    >
       <div
-        className="absolute"
+        className="pointer-events-auto absolute"
         style={{
           left: `${position.x}%`,
           top: `${position.y}%`,
           transform: "translate(-50%, -50%)",
+          pointerEvents: "auto",
         }}
+        onPointerDown={handleCharacterClick}
+        onClick={handleCharacterClick}
+        role="button"
+        tabIndex={0}
+        aria-label="Interact with AFK character"
       >
         <div
-          className="relative"
+          className={`cursor-target ${dying ? "afk-character-dying" : ""}`}
           style={{
             transform: direction === "left" ? "scaleX(-1)" : "scaleX(1)",
+            pointerEvents: dying ? "none" : "auto",
           }}
         >
           {state === "confused" && (
-            <div
-              className="absolute -right-1 -top-5 select-none font-mono text-[15px] font-bold leading-none text-orange-500"
-              style={{
-                transform: direction === "left" ? "scaleX(-1)" : "scaleX(1)",
-              }}
-            >
+            <div className="absolute -right-1 -top-5 select-none font-mono text-[15px] font-bold leading-none text-orange-500">
               ?
             </div>
           )}
 
-          <PixelCharacter state={state} frame={frame} />
-        </div>
-      </div>
-
-      <div className="fixed bottom-5 right-5 rounded-lg border border-white/10 bg-[#050505]/85 px-3 py-2 backdrop-blur-md">
-        <div className="flex items-center gap-2">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-orange-500" />
-
-          <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-zinc-500">
-            {state === "confused" ? "LOST" : state === "run" ? "FOUND" : "AFK"}
-          </span>
+          <PixelCharacter
+            state={state}
+            frame={frame}
+            onClick={handleCharacterClick}
+          />
         </div>
       </div>
     </div>
@@ -407,9 +441,11 @@ export default function AFKCharacter({
 function PixelCharacter({
   state,
   frame,
+  onClick,
 }: {
   state: CharacterState;
   frame: number;
+  onClick: React.MouseEventHandler<SVGSVGElement>;
 }) {
   const walkFrames = [
     <IdleFrame key="0" />,
@@ -443,16 +479,23 @@ function PixelCharacter({
  * ---------------------------------------------------------
  */
 
-function CharacterBase({ children }: { children?: React.ReactNode }) {
+function CharacterBase({
+  children,
+  onClick,
+}: {
+  children?: React.ReactNode;
+  onClick?: React.MouseEventHandler<SVGSVGElement>;
+}) {
   return (
     <svg
+      onClick={onClick}
       width="48"
       height="48"
       viewBox="0 0 48 48"
       xmlns="http://www.w3.org/2000/svg"
       shapeRendering="crispEdges"
       aria-hidden="true"
-      className="block"
+      className="block cursor-pointer"
     >
       {/* ground shadow */}
       <rect x="12" y="44" width="25" height="2" fill="#000000" opacity="0.45" />
@@ -468,9 +511,13 @@ function CharacterBase({ children }: { children?: React.ReactNode }) {
  * ---------------------------------------------------------
  */
 
-function IdleFrame() {
+function IdleFrame({
+  onClick,
+}: {
+  onClick?: React.MouseEventHandler<SVGSVGElement>;
+}) {
   return (
-    <CharacterBase>
+    <CharacterBase onClick={onClick}>
       <Hair />
       <Face />
       <Hoodie />
