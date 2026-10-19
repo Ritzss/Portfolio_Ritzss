@@ -71,6 +71,21 @@ export const projects: Project[] = [
   featured: true,
   github:"https://github.com/Ritzss/RKSGrocery2.0",
 },
+{
+  title: "Inventory Management System (IMS)",
+  subTitle: "Inventory & Stock Control Platform",
+  description:
+    "A centralized inventory management system designed to track stock levels, manage products, monitor inventory movements, and streamline day-to-day inventory operations.",
+  technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
+  highlights: [
+    "Product and inventory management",
+    "Real-time stock level tracking",
+    "Inventory updates and movement monitoring",
+    "Responsive dashboard for managing inventory",
+  ],
+  image: "/projects/ims.webp",
+  featured: true,
+}
 ];
 
 export const experience: Experience[] = [
